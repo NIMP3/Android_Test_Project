@@ -1,119 +1,292 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageViewHeader"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="@null"
-        app:layout_constraintDimensionRatio="16:9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/header" />
+<ImageView
+    android:id="@+id/imageViewHeader"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:contentDescription="@null"
+    app:layout_constraintDimensionRatio="16:9"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/header" />
 
-    <ImageView
-        android:id="@+id/ImageViewPoster"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewHeader"
-        app:layout_constraintDimensionRatio="w,2:3"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewHeader"
-        app:srcCompat="@drawable/poster" />
+<ImageView
+    android:id="@+id/ImageViewPoster"
+    android:layout_width="0dp"
+    android:layout_height="150dp"
+    android:layout_marginBottom="8dp"
+    android:contentDescription="@null"
+    app:layout_constraintBottom_toBottomOf="@+id/imageViewHeader"
+    app:layout_constraintDimensionRatio="w,2:3"
+    app:layout_constraintStart_toStartOf="@+id/guideline"
+    app:layout_constraintTop_toBottomOf="@+id/imageViewHeader"
+    app:srcCompat="@drawable/poster" />
 
-    <TextView
-        android:id="@+id/textViewMovieHeading"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Beauty and the Beast"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintStart_toEndOf="@+id/ImageViewPoster"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewHeader"
-        tools:text="Beauty and the Beast" />
+<TextView
+    android:id="@+id/textViewMovieHeading"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:text="Beauty and the Beast"
+    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+    app:layout_constraintEnd_toStartOf="@+id/imageButton"
+    app:layout_constraintStart_toEndOf="@+id/ImageViewPoster"
+    app:layout_constraintTop_toBottomOf="@+id/imageViewHeader"
+    tools:text="Beauty and the Beast" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="?attr/selectableItemBackground"
-        android:src="@drawable/ic_bookmark"
-        android:tint="@color/colorAccent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewHeader" />
+<ImageButton
+    android:id="@+id/imageButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:background="?attr/selectableItemBackground"
+    android:tint="@color/colorAccent"
+    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+    app:layout_constraintTop_toBottomOf="@+id/imageViewHeader"
+    app:srcCompat="@drawable/ic_bookmark" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+<android.support.constraint.Guideline
+    android:id="@+id/guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_begin="16dp" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
+<android.support.constraint.Guideline
+    android:id="@+id/guideline2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_end="16dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="PG13 | Comedy | 113 min"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toEndOf="@+id/ImageViewPoster"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMovieHeading"
-        tools:text="PG13 | Comedy | 113 min" />
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="PG13 | Comedy | 113 min"
+    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+    app:layout_constraintStart_toEndOf="@+id/ImageViewPoster"
+    app:layout_constraintTop_toBottomOf="@+id/textViewMovieHeading"
+    tools:text="PG13 | Comedy | 113 min" />
 
-    <android.support.constraint.Barrier
-        android:id="@+id/barrier2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ImageViewPoster,textView2" />
+<android.support.constraint.Barrier
+    android:id="@+id/barrier2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="invisible"
+    app:barrierDirection="bottom"
+    app:constraint_referenced_ids="ImageViewPoster,textView2"
+    tools:layout_editor_absoluteY="291dp" />
 
-    <Button
-        android:id="@+id/button"
-        style="@android:style/Widget.Material.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:text="RENT FROM R29.99"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/barrier2"
-        tools:text="RENT FROM R29.99" />
+<View
+    android:id="@+id/view6"
+    android:layout_width="0dp"
+    android:layout_height="1dp"
+    android:layout_marginTop="8dp"
+    android:background="@color/colorDivisor"
+    android:visibility="visible"
+    app:layout_constraintStart_toStartOf="@+id/guideline"
+    app:layout_constraintEnd_toEndOf="@id/guideline2"
+    app:layout_constraintTop_toTopOf="@+id/barrier4" />
 
-    <Button
-        android:id="@+id/button2"
-        style="@android:style/Widget.Material.Button.Colored"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="BUY FROM R129.99"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/barrier2"
-        tools:text="BUY FROM R129.99" />
+<Button
+    android:id="@+id/button"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="16dp"
+    android:background="@color/colorAccent"
+    android:text="RENT FROM R29.99"
+    android:textColor="@color/colorPrimaryIcon"
+    app:layout_constraintEnd_toStartOf="@+id/button2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="@+id/guideline"
+    app:layout_constraintTop_toTopOf="@+id/barrier2"
+    tools:text="RENT FROM R29.99" />
+
+<Button
+    android:id="@+id/button2"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:background="@color/colorAccent"
+    android:text="BUY FROM R129.99"
+    android:textColor="@color/colorPrimaryIcon"
+    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/button"
+    app:layout_constraintTop_toTopOf="@+id/barrier2"
+    tools:text="BUY FROM R129.99" />
+
+<android.support.constraint.Barrier
+    android:id="@+id/barrier4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:barrierDirection="bottom"
+    app:constraint_referenced_ids="button,button2"
+    tools:layout_editor_absoluteY="602dp" />
+
+<ImageButton
+    android:id="@+id/imageButton2"
+    android:layout_width="56dp"
+    android:layout_height="56dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+    android:tint="@color/colorAccent"
+    app:layout_constraintEnd_toStartOf="@+id/floatingActionButton2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintHorizontal_chainStyle="spread"
+    app:layout_constraintStart_toStartOf="@+id/guideline"
+    app:layout_constraintTop_toBottomOf="@+id/view6"
+    app:srcCompat="@drawable/polygon_raiting" />
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/floatingActionButton2"
+    android:layout_width="56dp"
+    android:layout_height="56dp"
+    android:layout_marginTop="8dp"
+    android:clickable="true"
+    app:layout_constraintEnd_toStartOf="@+id/floatingActionButton3"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/imageButton2"
+    app:layout_constraintTop_toBottomOf="@+id/view6"
+    app:srcCompat="@drawable/ic_group_white_24dp" />
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/floatingActionButton3"
+    android:layout_width="56dp"
+    android:layout_height="56dp"
+    android:layout_marginTop="8dp"
+    android:clickable="true"
+    app:backgroundTint="@color/colorPrimaryIcon"
+    app:layout_constraintEnd_toStartOf="@+id/floatingActionButton4"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/floatingActionButton2"
+    app:layout_constraintTop_toBottomOf="@+id/view6"
+    app:srcCompat="@drawable/tomato" />
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/floatingActionButton4"
+    android:layout_width="56dp"
+    android:layout_height="56dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:clickable="true"
+    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/floatingActionButton3"
+    app:layout_constraintTop_toBottomOf="@+id/view6"
+    app:srcCompat="@drawable/ic_view_carousel_white_24dp" />
+
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="242 raitings"
+    android:textAlignment="center"
+    app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+    app:layout_constraintStart_toStartOf="@+id/imageButton2"
+    app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+    tools:text="242 raitings" />
+
+<TextView
+    android:id="@+id/textView3"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="Family"
+    android:textAlignment="center"
+    app:layout_constraintEnd_toEndOf="@+id/floatingActionButton2"
+    app:layout_constraintStart_toStartOf="@+id/floatingActionButton2"
+    app:layout_constraintTop_toBottomOf="@+id/floatingActionButton2"
+    tools:text="Family" />
+
+<TextView
+    android:id="@+id/textView4"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="71%"
+    android:textAlignment="center"
+    app:layout_constraintEnd_toEndOf="@+id/floatingActionButton3"
+    app:layout_constraintStart_toStartOf="@+id/floatingActionButton3"
+    app:layout_constraintTop_toBottomOf="@+id/floatingActionButton3"
+    tools:text="71%" />
+
+<TextView
+    android:id="@+id/textView5"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="Similar"
+    android:textAlignment="center"
+    app:layout_constraintEnd_toEndOf="@+id/floatingActionButton4"
+    app:layout_constraintStart_toStartOf="@+id/floatingActionButton4"
+    app:layout_constraintTop_toBottomOf="@+id/floatingActionButton4"
+    tools:text="Similar" />
+
+<TextView
+    android:id="@+id/textView6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="4.5"
+    android:textColor="@color/colorPrimaryIcon"
+    app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+    app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+    app:layout_constraintStart_toStartOf="@+id/imageButton2"
+    app:layout_constraintTop_toTopOf="@+id/imageButton2"
+    tools:text="4.5" />
+
+<android.support.constraint.Barrier
+    android:id="@+id/barrier3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:barrierDirection="bottom"
+    app:constraint_referenced_ids="textView,textView3,textView4,textView5"
+    tools:layout_editor_absoluteY="486dp" />
+
+<View
+    android:id="@+id/view"
+    android:layout_width="0dp"
+    android:layout_height="1dp"
+    android:layout_marginTop="8dp"
+    android:background="@color/colorDivisor"
+    android:visibility="visible"
+    app:layout_constraintEnd_toEndOf="@id/guideline2"
+    app:layout_constraintStart_toStartOf="@+id/guideline"
+    app:layout_constraintTop_toTopOf="@+id/barrier3" />
+
+<TextView
+    android:id="@+id/textView7"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:fontFamily="@font/noto_sans"
+    android:text="@string/movie_description"
+    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+    android:textSize="16sp"
+    android:typeface="sans"
+    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+    app:layout_constraintStart_toStartOf="@+id/guideline"
+    app:layout_constraintTop_toBottomOf="@+id/view" />
 </android.support.constraint.ConstraintLayout>
