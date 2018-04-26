@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">AndroidTestProject</string>
     <string name="movie_description">Held captive in an enchanted castle where clocks and candlesticks come to life, a brave young woman clashes with a beastly but good-</string>
+    <string name="title_search">Google Play</string>
+
+    <!-- TabLayout - Items del Menu Principal -->
+    <string name="item_home">HOME</string>
+    <string name="item_games">GAMES</string>
+    <string name="item_movies">MOVIES</string>
+    <string name="item_books">BOOKS</string>
+    <string name="item_music">MUSIC</string>
+    <string name="item_news_stand">NEWSSTAND</string>
 </resources>
