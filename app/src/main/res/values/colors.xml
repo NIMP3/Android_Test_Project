@@ -7,4 +7,6 @@
     <color name="colorDivisor">#c7c7c7</color>
     <color name="colorSecondaryIcon">#5e5d5d</color>
     <color name="colorDefaultTabItem">#98ffffff</color>
+    <color name="colorPositiveSelection">#059e61</color>
+    <color name="colorNegativeSelection">#de0814</color>
 </resources>
