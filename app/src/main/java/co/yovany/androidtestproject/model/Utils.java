@@ -2,6 +2,7 @@ package co.yovany.androidtestproject.model;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,9 +31,11 @@ public class Utils {
                 profiles.add(profile);
             }
 
+            Log.e("JSON","DATA");
             return profiles;
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.e("JSON","NULL");
             return null;
         }
     }

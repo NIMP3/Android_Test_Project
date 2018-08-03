@@ -1,6 +1,13 @@
 package co.yovany.androidtestproject.adapter;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.design.widget.Snackbar;
+import android.util.Log;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,14 +36,19 @@ public class ProfileAdapterSwipeView {
     private TextView tvNameProfile;
     @View(R.id.locationNameTxt)
     private TextView tvIdProfile;
+    @View(R.id.tvStatusProfile)
+    private TextView tvStatusProfile;
+    @View(R.id.cbAssistanceProfile)
+    private CheckBox cbAssistanceProfile;
+
 
     private Profile profile;
-    private Context context;
+    private Activity activity;
     private SwipePlaceHolderView swipeView;
 
-    public ProfileAdapterSwipeView(Profile profile, Context context, SwipePlaceHolderView swipeView) {
+    public ProfileAdapterSwipeView(Profile profile, Activity activity, SwipePlaceHolderView swipeView) {
         this.profile = profile;
-        this.context = context;
+        this.activity = activity;
         this.swipeView = swipeView;
     }
 
@@ -46,6 +58,62 @@ public class ProfileAdapterSwipeView {
 
         tvNameProfile.setText(profile.getName());
         tvIdProfile.setText(profile.getId());
+        switch (profile.getStatus()) {
+            case 0:
+                tvStatusProfile.setText("ASISTIÓ");
+                cbAssistanceProfile.setChecked(false);
+                break;
+            case 1:
+                tvStatusProfile.setText("NO ASISTIÓ - CON EXCUSA");
+                cbAssistanceProfile.setChecked(true);
+                break;
+            case 2:
+                tvStatusProfile.setText("NO ASISTIÓ");
+                cbAssistanceProfile.setChecked(true);
+                break;
+        }
+
+        cbAssistanceProfile.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                int status = profile.getStatus();
+                switch (status) {
+                    case 2:
+                        profile.setStatus(0);
+                        tvStatusProfile.setText("ASISTIÓ");
+                        break;
+                    case 1:
+                        profile.setStatus(0);
+                        tvStatusProfile.setText("ASISTIÓ");
+                        break;
+                    case 0:
+                        new AlertDialog.Builder(activity)
+                                .setTitle("Asistencia")
+                                .setMessage("¿El estudiante tiene excusa?")
+                                .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        tvStatusProfile.setText("NO ASISTIÓ - CON EXCUSA");
+                                        profile.setStatus(1);
+
+                                        dialogInterface.dismiss();
+                                    }
+                                })
+                                .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        tvStatusProfile.setText("NO ASISTIÓ");
+                                        profile.setStatus(2);
+
+                                        dialogInterface.dismiss();
+                                    }
+                                })
+                                .show();
+
+                        break;
+                }
+            }
+        });
     }
 
     @SwipeOut
@@ -55,7 +123,7 @@ public class ProfileAdapterSwipeView {
     private void onSwipeCancelState() {}
 
     @SwipeIn
-    private void onSwipeIn() {}
+    private void onSwipeIn() { swipeView.addView(this); }
 
     @SwipeInState
     private void onSwipeInState() {}

@@ -21,7 +21,6 @@ public class TinderSwipeActivity extends AppCompatActivity {
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +33,11 @@ public class TinderSwipeActivity extends AppCompatActivity {
                 .setDisplayViewCount(3)
                 .setSwipeDecor(new SwipeDecor()
                         .setPaddingTop(20)
-                        .setRelativeScale(0.01f)
-                        .setSwipeInMsgLayoutId(R.layout.tinder_swipe_in)
-                        .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_out));
+                        .setRelativeScale(0.01f));
 
 
         for(Profile profile : Utils.loadProfiles(this.getApplicationContext())){
-            mSwipeView.addView(new ProfileAdapterSwipeView(profile, mContext, mSwipeView));
+            mSwipeView.addView(new ProfileAdapterSwipeView(profile, this, mSwipeView));
         }
     }
 }
