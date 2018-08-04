@@ -8,4 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="EditTextBlack" parent="TextAppearance.AppCompat">
+        <!--textColorPrimary controla el color del texto escrito en el EditText-->
+        <item name="android:textColorPrimary">#000000</item>
+        <!--colorAcent controla el color del hint y el borde inferior cuando el EditText es seleccionado-->
+        <item name="colorAccent">#ab08b1</item>
+        <!--textColorHint controla el color  del hint cuando el EditText no esta seleccionado-->
+        <item name="android:textColorHint">#fc0000</item>
+        <!--colorControlNormal controla el color del borde inferior cuando el EditText no esta seleccionado-->
+        <item name="colorControlNormal">#c4be03</item>
+        <!--anula el colorAccent y se encarga de su control-->
+        <item name="colorControlActivated">#1830ce</item>
+    </style>
+    
+    <style name="HintText" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
