@@ -1,7 +1,9 @@
-package co.yovany.androidtestproject;
+package co.yovany.androidtestproject.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import co.yovany.androidtestproject.R;
 
 public class MainActivity extends AppCompatActivity {
 

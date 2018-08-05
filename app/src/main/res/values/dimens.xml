@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="height_cardview_example">200dp</dimen>
+    <dimen name="margin_cardview_example">8dp</dimen>
+    <dimen name="measure_cardview_example">5dp</dimen>
+</resources>

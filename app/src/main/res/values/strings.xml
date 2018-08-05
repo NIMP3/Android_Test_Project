@@ -10,4 +10,7 @@
     <string name="item_books">BOOKS</string>
     <string name="item_music">MUSIC</string>
     <string name="item_news_stand">NEWSSTAND</string>
+    <string name="text_title_example">TextInputLayout</string>
+    <string name="text_description_example">Se van a explorar todas las caracteristicas del componente TextInputLayout</string>
+    <string name="title_examples_list">Ejemplos</string>
 </resources>

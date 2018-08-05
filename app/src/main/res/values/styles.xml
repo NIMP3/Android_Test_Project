@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--Estilos para el Toolbar-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
     <style name="EditTextBlack" parent="TextAppearance.AppCompat">
         <!--textColorPrimary controla el color del texto escrito en el EditText-->
         <item name="android:textColorPrimary">#000000</item>
