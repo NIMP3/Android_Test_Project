@@ -24,8 +24,9 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".view.TinderSwipeActivity" />
-        <activity android:name=".view.MainActivity"/>
-        <activity android:name=".view.ComponentEditTextActivity"/>
+        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.ComponentEditTextActivity" />
+        <activity android:name=".SettingsActivity"/>
     </application>
 
 </manifest>

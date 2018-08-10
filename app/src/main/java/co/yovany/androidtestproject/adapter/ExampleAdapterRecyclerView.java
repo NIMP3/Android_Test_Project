@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import co.yovany.androidtestproject.R;
+import co.yovany.androidtestproject.SettingsActivity;
 import co.yovany.androidtestproject.model.Example;
 import co.yovany.androidtestproject.view.ComponentEditTextActivity;
 import co.yovany.androidtestproject.view.MainActivity;
@@ -96,6 +97,10 @@ public class ExampleAdapterRecyclerView extends RecyclerView.Adapter<ExampleAdap
                 break;
             case 3:
                 intent = new Intent(activity, TinderSwipeActivity.class);
+                activity.startActivity(intent);
+                break;
+            case 4:
+                intent = new Intent(activity, SettingsActivity.class);
                 activity.startActivity(intent);
                 break;
         }

@@ -54,6 +54,7 @@ public class ProfileAdapterSwipeView {
 
     @Resolve
     private void onResolve() {
+        Log.e("PROFILE",profile.getName());
         Picasso.get().load(profile.getImageUrl()).into(civPictureProfile);
 
         tvNameProfile.setText(profile.getName());
