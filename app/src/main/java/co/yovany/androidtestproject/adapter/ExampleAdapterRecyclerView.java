@@ -22,6 +22,7 @@ import co.yovany.androidtestproject.SettingsActivity;
 import co.yovany.androidtestproject.model.Example;
 import co.yovany.androidtestproject.view.ComponentEditTextActivity;
 import co.yovany.androidtestproject.view.MainActivity;
+import co.yovany.androidtestproject.view.StudentListActivity;
 import co.yovany.androidtestproject.view.TinderSwipeActivity;
 
 public class ExampleAdapterRecyclerView extends RecyclerView.Adapter<ExampleAdapterRecyclerView.ExampleViewHolder> {
@@ -103,6 +104,9 @@ public class ExampleAdapterRecyclerView extends RecyclerView.Adapter<ExampleAdap
                 intent = new Intent(activity, SettingsActivity.class);
                 activity.startActivity(intent);
                 break;
+            case 5:
+                intent = new Intent(activity, StudentListActivity.class);
+                activity.startActivity(intent);
         }
     }
 }

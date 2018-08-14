@@ -42,6 +42,7 @@ public class ExamplesListActivity extends AppCompatActivity {
         examples.add(new Example(2,"ConstraintLayout","En este ejemplo se evaluaran las caracteristicas de ConstraintLayout","https://i.imgur.com/1TqeLKl.png"));
         examples.add(new Example(3,"Tinder Swipe Example","En este ejemplo se evaluaran las caracteristicas del ejemplo Tinder Swipe Example","https://i.imgur.com/1TqeLKl.png"));
         examples.add(new Example(4,"Settings Activity Example","En este ejemplo se estudiaran los componentes de un SettingsActivity creado por Android","https://i.imgur.com/1TqeLKl.png"));
+        examples.add(new Example(5,"RecyclerView by Cardview","En este ejemplo se evaluara un recyclerview en el que el Scroll se hace por CardView","https://i.imgur.com/1TqeLKl.png"));
 
         return examples;
     }
