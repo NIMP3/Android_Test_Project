@@ -5,12 +5,14 @@ public class Example {
     private String titleExample;
     private String descriptionExample;
     private String pictureExample;
+    private Class classExample;
 
-    public Example(int codeExample, String titleExample, String descriptionExample, String pictureExample) {
+    public Example(int codeExample, String titleExample, String descriptionExample, String pictureExample, Class classExample) {
         this.codeExample = codeExample;
         this.titleExample = titleExample;
         this.descriptionExample = descriptionExample;
         this.pictureExample = pictureExample;
+        this.classExample = classExample;
     }
 
     public int getCodeExample() {
@@ -43,5 +45,13 @@ public class Example {
 
     public void setPictureExample(String pictureExample) {
         this.pictureExample = pictureExample;
+    }
+
+    public Class getClassExample() {
+        return classExample;
+    }
+
+    public void setClassExample(Class classExample) {
+        this.classExample = classExample;
     }
 }

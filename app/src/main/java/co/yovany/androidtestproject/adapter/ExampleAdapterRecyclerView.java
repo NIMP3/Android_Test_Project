@@ -55,7 +55,8 @@ public class ExampleAdapterRecyclerView extends RecyclerView.Adapter<ExampleAdap
         holder.cvExample.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                evaluateExample(example.getCodeExample());
+                Intent intent = new Intent(activity, example.getClassExample());
+                activity.startActivity(intent);
             }
         });
     }
@@ -79,34 +80,6 @@ public class ExampleAdapterRecyclerView extends RecyclerView.Adapter<ExampleAdap
             ivPictureExample = itemView.findViewById(R.id.ivPictureExample);
             tvTitleExample = itemView.findViewById(R.id.tvTitleExample);
             tvDescriptionExample = itemView.findViewById(R.id.tvDescriptionExample);
-        }
-    }
-
-    /*----------------------------------------------------------------------------------------------
-    Evaluar el tipo de Ejemplo seleccionado y ejecutar una determinada acción
-     */
-    public void evaluateExample(int code) {
-        Intent intent;
-        switch (code) {
-            case 1:
-                intent = new Intent(activity, ComponentEditTextActivity.class);
-                activity.startActivity(intent);
-                break;
-            case 2:
-                intent = new Intent(activity, MainActivity.class);
-                activity.startActivity(intent);
-                break;
-            case 3:
-                intent = new Intent(activity, TinderSwipeActivity.class);
-                activity.startActivity(intent);
-                break;
-            case 4:
-                intent = new Intent(activity, SettingsActivity.class);
-                activity.startActivity(intent);
-                break;
-            case 5:
-                intent = new Intent(activity, StudentListActivity.class);
-                activity.startActivity(intent);
         }
     }
 }
