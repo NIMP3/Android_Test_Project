@@ -44,9 +44,9 @@ public class StudentAdapterRecyclerView extends RecyclerView.Adapter<StudentAdap
     public void onBindViewHolder(@NonNull final StudentViewHolder holder, int position) {
         Student student = students.get(position);
 
-        Picasso.get().load(student.getAvatarStudent()).into(holder.ivPictureStudent);
-        holder.tvNamePictureStudent.setText(student.getNameStudent());
-        holder.tvIdStudent.setText(student.getIdStudent());
+        Picasso.get().load(student.getAvatar()).into(holder.ivPictureStudent);
+        holder.tvNamePictureStudent.setText(student.getName());
+        holder.tvIdStudent.setText(student.getId());
 
         holder.cbAssistance.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

@@ -15,6 +15,13 @@ import co.yovany.androidtestproject.view.ComponentEditTextActivity;
 import co.yovany.androidtestproject.view.MainActivity;
 import co.yovany.androidtestproject.view.StudentListActivity;
 import co.yovany.androidtestproject.view.TinderSwipeActivity;
+import co.yovany.androidtestproject.view.ToolbarOptions;
+
+/*
+ * @author Edwin Yovany Orbes Villacorte
+ *
+ * Manejo de un RecyclerView con una lista de ejemplos para controlar la creación de nuevas Pruebas
+ * de componentes*/
 
 public class ExamplesListActivity extends AppCompatActivity {
 
@@ -23,7 +30,9 @@ public class ExamplesListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_examples_list);
 
-        showToolbar(getResources().getString(R.string.title_examples_list),false);
+        new ToolbarOptions(this,R.id.toolbar).showToolbar(
+                getResources().getString(R.string.title_examples_list),
+                false);
 
         RecyclerView recyclerViewExampleList = findViewById(R.id.rvExamplesList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -36,8 +45,14 @@ public class ExamplesListActivity extends AppCompatActivity {
         recyclerViewExampleList.setAdapter(exampleAdapterRecyclerView);
     }
 
+    /*==============================================================================================
+    FUNCIONES
+     */
+
     /*----------------------------------------------------------------------------------------------
-    Construir un listado de ejemplos
+    *Construye una lista con base en los ejemplos creados
+    *
+    *@return <code>ArrayList<Example></code> listado de ejemplos
      */
     private ArrayList<Example> buildExamplesList() {
         ArrayList<Example> examples = new ArrayList<>();
@@ -50,16 +65,4 @@ public class ExamplesListActivity extends AppCompatActivity {
 
         return examples;
     }
-
-    /*----------------------------------------------------------------------------------------------
-    Mostrar el toolbar con determinadas caracteristicas
-     */
-    public void showToolbar(String title, Boolean upButton) {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(title);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
-    }
-
-
 }

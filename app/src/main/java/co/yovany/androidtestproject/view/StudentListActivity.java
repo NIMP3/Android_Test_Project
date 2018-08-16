@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.adapter.StudentAdapterRecyclerView;
 import co.yovany.androidtestproject.model.Student;
+import co.yovany.androidtestproject.model.Students;
 
 public class StudentListActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class StudentListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         StudentAdapterRecyclerView studentAdapterRecyclerView =
-                new StudentAdapterRecyclerView(buildStudents(), this, R.layout.cardview_student);
+                new StudentAdapterRecyclerView(Students.getStudents(), this, R.layout.cardview_student);
         recyclerView.setAdapter(studentAdapterRecyclerView);
 
 
@@ -43,16 +44,5 @@ public class StudentListActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private ArrayList<Student> buildStudents() {
-        ArrayList<Student> students = new ArrayList<>();
-
-        students.add(new Student(1,"Juan Carlos","1095643423",3, 4, 15,"https://www.tgh.org/sites/default/files/lunchbox871.jpg"));
-        students.add(new Student(2,"Jessica Marcela","1085423125",3, 4, 15,"https://www.paintlounge.ca/wp-content/uploads/2017/07/kids.jpg"));
-        students.add(new Student(3,"Jesús Daniel","1088456923",3, 4, 15,"https://321talentshowcase.com/wp-content/uploads/2012/10/Lucas-Sanson-Headshot-819x1024.jpg"));
-
-
-        return students;
     }
 }

@@ -2,77 +2,47 @@ package co.yovany.androidtestproject.model;
 
 public class Student {
 
-    int codeStudent;
-    String NameStudent;
-    String IdStudent;
-    int missingExcuseStudent;
-    int missingStudent;
-    int totalMissingStudent;
-    String avatarStudent;
+    private int code;
+    private String name;
+    private String id;
+    private String avatar;
 
-    public Student(int codeStudent, String nameStudent, String idStudent, int missingExcuseStudent, int missingStudent, int totalMissingStudent, String avatarStudent) {
-        this.codeStudent = codeStudent;
-        NameStudent = nameStudent;
-        IdStudent = idStudent;
-        this.missingExcuseStudent = missingExcuseStudent;
-        this.missingStudent = missingStudent;
-        this.totalMissingStudent = totalMissingStudent;
-        this.avatarStudent = avatarStudent;
+    public Student(int code, String name, String id, String avatar) {
+        this.code = code;
+        this.name = name;
+        this.id = id;
+        this.avatar = avatar;
     }
 
-    public int getCodeStudent() {
-        return codeStudent;
+    public int getCode() {
+        return code;
     }
 
-    public void setCodeStudent(int codeStudent) {
-        this.codeStudent = codeStudent;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getNameStudent() {
-        return NameStudent;
+    public String getName() {
+        return name;
     }
 
-    public void setNameStudent(String nameStudent) {
-        NameStudent = nameStudent;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getIdStudent() {
-        return IdStudent;
+    public String getId() {
+        return id;
     }
 
-    public void setIdStudent(String idStudent) {
-        IdStudent = idStudent;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public int getMissingExcuseStudent() {
-        return missingExcuseStudent;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setMissingExcuseStudent(int missingExcuseStudent) {
-        this.missingExcuseStudent = missingExcuseStudent;
-    }
-
-    public int getMissingStudent() {
-        return missingStudent;
-    }
-
-    public void setMissingStudent(int missingStudent) {
-        this.missingStudent = missingStudent;
-    }
-
-    public int getTotalMissingStudent() {
-        return totalMissingStudent;
-    }
-
-    public void setTotalMissingStudent(int totalMissingStudent) {
-        this.totalMissingStudent = totalMissingStudent;
-    }
-
-    public String getAvatarStudent() {
-        return avatarStudent;
-    }
-
-    public void setAvatarStudent(String avatarStudent) {
-        this.avatarStudent = avatarStudent;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }
