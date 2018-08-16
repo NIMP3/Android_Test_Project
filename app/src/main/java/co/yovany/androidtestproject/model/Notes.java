@@ -28,12 +28,13 @@ public class Notes {
         //Notas del primer Estudiante de la lista
         list.add(new Note(1,4.5,1,1));
         list.add(new Note( 2,3.8,2,1));
+        list.add(new Note( 3,4.8,3,1));
         //Notas del segundo Estudiante de la lista
-        list.add(new Note(3,2.9,1,2));
-        list.add(new Note(4,4.9,2,2));
+        list.add(new Note(4,2.9,1,2));
+        list.add(new Note(5,4.9,2,2));
         //Notas del tercer Estudiante de la lista
-        list.add(new Note(5,3.1,1,3));
-        list.add(new Note(6,4.0,2,3));
+        list.add(new Note(6,3.1,1,3));
+        list.add(new Note(7,4.0,2,3));
 
         return list;
     }

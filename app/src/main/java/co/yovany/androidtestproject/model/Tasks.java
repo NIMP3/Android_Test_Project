@@ -23,6 +23,7 @@ public class Tasks {
 
         list.add(new Task(1,"EXAMEN"));
         list.add(new Task(2,"TRABAJO"));
+        list.add(new Task(3,"EXPOSICIÓN"));
 
         return list;
     }
