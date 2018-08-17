@@ -89,5 +89,5 @@
     <string name="mpandroidchart_activity_title">Gráficos</string>
     <string name="linechart_dialog_title">INFORMACIÓN DEL GRÁFICO</string>
     <string name="linechart_dialog_message">Gráfico de lineas y puntos</string>
-    <string name="linechart_legend">NOTAS DEL ESTUDIANTE</string>
+    <string name="linechart_legend">Notas del Estudiante</string>
 </resources>
