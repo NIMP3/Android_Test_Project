@@ -12,6 +12,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <!--Estilos para el EditText-->
     <style name="EditTextBlack" parent="TextAppearance.AppCompat">
         <!--textColorPrimary controla el color del texto escrito en el EditText-->
         <item name="android:textColorPrimary">#000000</item>
@@ -24,10 +25,34 @@
         <!--anula el colorAccent y se encarga de su control-->
         <item name="colorControlActivated">#1830ce</item>
     </style>
-    
+
+    <!--Estilos para el Hint del EditText-->
     <style name="HintText" parent="TextAppearance.Design.Hint">
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--Estilos para el CounterText-->
+    <style name="CounterText" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#07c158</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--Estilos para el CounterOverflow-->
+    <style name="CounterOverflow" parent="TextAppearance.Design.Counter.Overflow">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#c10707</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--Estilos para el Error en el EditText
+        El indicador del campo de texto usa el mismo color que la etiqueta de error, por lo tanto
+        este estilo anula el ya establecido por CounterOverflow-->
+    <style name="ErrorText" parent="TextAppearance.Design.Error">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#89c611</item>
         <item name="android:textStyle">bold</item>
     </style>
 
