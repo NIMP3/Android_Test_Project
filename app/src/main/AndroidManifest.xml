@@ -28,7 +28,8 @@
         <activity android:name=".view.ComponentEditTextActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".view.StudentListActivity" />
-        <activity android:name=".view.MPAndroidChartActivity"/>
+        <activity android:name=".view.MPAndroidChartActivity" />
+        <activity android:name=".view.NestedScrollViewActivity"></activity>
     </application>
 
 </manifest>

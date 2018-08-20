@@ -3,4 +3,7 @@
     <dimen name="height_cardview_example">200dp</dimen>
     <dimen name="margin_cardview_example">8dp</dimen>
     <dimen name="measure_cardview_example">5dp</dimen>
+    <dimen name="cardview_child_height">150dp</dimen>
+    <dimen name="cardview_child_elevation">2dp</dimen>
+    <dimen name="cardview_child_radius">5dp</dimen>
 </resources>

@@ -90,4 +90,10 @@
     <string name="linechart_dialog_title">INFORMACIÓN DEL GRÁFICO</string>
     <string name="linechart_dialog_message">Gráfico de lineas y puntos</string>
     <string name="linechart_legend">Notas del Estudiante</string>
+    <string name="child_name_text">Edwin Yovany</string>
+    <string name="child_id_text">10873450956</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="child_performance_title">Rendimiento de la Actividad</string>
 </resources>
