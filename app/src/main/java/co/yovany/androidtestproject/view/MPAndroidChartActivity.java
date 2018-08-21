@@ -6,6 +6,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -14,9 +17,12 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.renderer.XAxisRenderer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 import co.yovany.androidtestproject.R;
@@ -61,11 +67,75 @@ public class MPAndroidChartActivity extends AppCompatActivity implements OnChart
 
         lineChart.setOnChartGestureListener(this);
         lineChart.setOnChartValueSelectedListener(this);
+
+        buildAxis();
     }
 
     /*==============================================================================================
     * FUNCIONES
      */
+
+    /*----------------------------------------------------------------------------------------------
+    * Determina las diferentes propiedades de los Ejes (X,Y)
+    *
+    * @return <code>HashMap<String, AxisBase></code> : Diccionario para los Ejes (X,Y) del gráfico*/
+    private void buildAxis() {
+        //Propiedades para el Eje X
+        XAxis xAxis = lineChart.getXAxis();
+        /*Habilita/Deshabilita todas las carateristicas del eje (X o Y)
+        * Default : true*/
+        xAxis.setEnabled(true);
+        /*Habilita/Deshabilita las etiquetas (numeros) del eje (X o Y)
+        * Default : true*/
+        xAxis.setDrawLabels(true);
+        /*Habilita/Deshabilita las lineas del Eje (X o Y)
+        * Default : true*/
+        xAxis.setDrawGridLines(false);
+        /*Controla el valor maximo o minimo del Eje (X o Y)
+        * Es mejor que este valor sea calculado automaticamente dependienteo de los datos seteados*/
+        xAxis.setAxisMaximum(3.0f);
+        xAxis.setAxisMinimum(1.0f);
+        /*Controla el numero de Etiquetas (numeros) sobre el eje (X o Y)
+        * force : true -> los valores de las etiquetas seran exactos dependiendo de los datos seteados
+        * force : false -> los valores de las etiquetas seran aproximados*/
+        xAxis.setLabelCount(3,false);
+        /*Determina la ubicación de las etiquetas del Eje
+        * BOTTOM : Abajo
+        * BOTTOM_INSIDE : Abajo pero dentro del gráfico
+        * TOP : Arriba
+        * TOP_INSIDE : Ariba pero dentro del gráfico
+        * BOTH_SIDED : Ambos lados (ARRIBA Y ABAJO)
+        *
+        * Default : TOP*/
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        /*Controla el intervalo entre cada uno de los valores del Eje (X o Y)*/
+        xAxis.setGranularity(1);
+        /*Habilita/Deshabilita */
+        xAxis.setGranularityEnabled(false);
+
+        //Propiedades para el Eje Y parte izquierdo
+        YAxis yAxisLeft = lineChart.getAxisLeft();
+        /*Invierte los valores del gráfico (valores altos en la parte inferior y viceversa)
+        * Solo en el eje Y*/
+        yAxisLeft.setInverted(false);
+        /*Controla el espacio en porcentaje del valor mas alto en comparación con el valor maximo
+        * del eje y viceversa en la parte inferior del gráfico
+        * Solo en el eje Y*/
+        yAxisLeft.setSpaceTop(5.0f);
+        yAxisLeft.setSpaceBottom(5.0f);
+        yAxisLeft.setLabelCount(3, true);
+        /*Determina la ubicación de las etiquetas del Eje
+        * INSIDE_CHART : Dentro del gráfico
+        * OUTSIDE_CHART : Fuera del gráfico
+        *
+        * Default : OUTSIDE_CHART*/
+        yAxisLeft.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
+        yAxisLeft.setGranularity(0.5f);
+
+        //Propiedades para el Eje Y parte derecha
+        YAxis yAxisRight = lineChart.getAxisRight();
+        yAxisRight.setDrawLabels(false);
+    }
 
     /*----------------------------------------------------------------------------------------------
     * Contruye una Lista de entradas dependiendo del estudiante seleccionado
