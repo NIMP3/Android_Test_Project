@@ -15,4 +15,9 @@
     <color name="colorDefaultTabItem">#98ffffff</color>
     <color name="colorPositiveSelection">#059e61</color>
     <color name="colorNegativeSelection">#de0814</color>
+
+    <color name="colorXAxisLabel">#ec0000</color>
+    <color name="colorYAxisLabel">#07a307</color>
+    <color name="colorGridAxis">#8f1884</color>
+    <color name="colorLimitLine">#000000</color>
 </resources>
