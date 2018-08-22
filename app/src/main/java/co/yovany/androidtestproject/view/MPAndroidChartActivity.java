@@ -16,6 +16,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.highlight.ChartHighlighter;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
@@ -29,6 +30,7 @@ import java.util.Vector;
 
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.model.Notes;
+import co.yovany.androidtestproject.model.Students;
 
 public class MPAndroidChartActivity extends AppCompatActivity implements OnChartGestureListener,
         OnChartValueSelectedListener{
@@ -44,23 +46,40 @@ public class MPAndroidChartActivity extends AppCompatActivity implements OnChart
                 .showToolbar(getResources().getString(R.string.mpandroidchart_activity_title), false);
 
         lineChart = findViewById(R.id.lineChart);
-        List<Entry> entriesStudent1 = buildEntries(1);
 
-        LineDataSet dataSet = new LineDataSet(entriesStudent1,getResources().getString(R.string.linechart_legend));
+        List<Entry> entriesStudent1 = buildEntries(1);
+        List<Entry> entriesStudent2 = buildEntries(2);
+
+
+        LineDataSet dataSet1 =
+                new LineDataSet(entriesStudent1, Students.getNameStudent(1));
+        LineDataSet dataSet2 =
+                new LineDataSet(entriesStudent2, Students.getNameStudent(2));
+
+        dataSet1.setAxisDependency(YAxis.AxisDependency.LEFT);
+        dataSet2.setAxisDependency(YAxis.AxisDependency.LEFT);
 
         //Controla el color de la linea del gráfico
-        dataSet.setColor(getResources().getColor(R.color.colorPositiveSelection));
+        dataSet1.setColor(getResources().getColor(R.color.colorLineStudent1));
+        dataSet2.setColor(getResources().getColor(R.color.colorLineStudent2));
         //Controla el color de los valores de cada punto en el gráfico
-        dataSet.setValueTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        dataSet1.setValueTextColor(getResources().getColor(R.color.colorValueLabel));
+        dataSet2.setValueTextColor(getResources().getColor(R.color.colorValueLabel));
         //Controla el color
-        dataSet.setFillColor(getResources().getColor(R.color.colorPositiveSelection));
+        //dataSet1.setFillColor(getResources().getColor(R.color.colorPositiveSelection));
         //Controla el color de los diferentes puntos en el gráfico
-        dataSet.setCircleColor(getResources().getColor(R.color.colorAccent));
+        dataSet1.setCircleColor(getResources().getColor(R.color.colorAccent));
+        dataSet2.setCircleColor(getResources().getColor(R.color.colorAccent));
 
         //Destacando valores
-        highlightingValues(dataSet);
+        highlightingValues(dataSet1);
 
-        LineData lineData = new LineData(dataSet);
+        //Construye una lista de grupos de datos para englobar en este case al Estudiante 1 y 2
+        List<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(dataSet1);
+        dataSets.add(dataSet2);
+
+        LineData lineData = new LineData(dataSets);
         lineChart.setData(lineData);
         lineChart.invalidate(); //refresh
 
@@ -158,6 +177,9 @@ public class MPAndroidChartActivity extends AppCompatActivity implements OnChart
         xAxis.setGranularity(1);
         /*Habilita/Deshabilita */
         xAxis.setGranularityEnabled(false);
+        /*Determina el angulo de las etiquetas sobre el Eje X
+        * Solo en el eje X*/
+        xAxis.setLabelRotationAngle(45f);
 
         //Propiedades para el Eje Y parte izquierdo
         YAxis yAxisLeft = lineChart.getAxisLeft();
@@ -169,7 +191,7 @@ public class MPAndroidChartActivity extends AppCompatActivity implements OnChart
         * Solo en el eje Y*/
         yAxisLeft.setSpaceTop(0f);
         yAxisLeft.setSpaceBottom(0f);
-        yAxisLeft.setLabelCount(3, true);
+        yAxisLeft.setLabelCount(6, true);
         /*Determina la ubicación de las etiquetas del Eje
         * INSIDE_CHART : Dentro del gráfico
         * OUTSIDE_CHART : Fuera del gráfico
@@ -178,6 +200,13 @@ public class MPAndroidChartActivity extends AppCompatActivity implements OnChart
         yAxisLeft.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
         yAxisLeft.setGranularity(1);
         yAxisLeft.setGranularityEnabled(true);
+        yAxisLeft.setAxisMinimum(0f);
+        yAxisLeft.setAxisMaximum(5f);
+        /*Habilita/Deshabilita el dibujar la linea cero
+        * Determina algunas propiedades sobre la Linea cero*/
+        yAxisLeft.setDrawZeroLine(true);
+        yAxisLeft.setZeroLineWidth(3f);
+        yAxisLeft.setZeroLineColor(getResources().getColor(R.color.colorZeroLine));
 
         //Propiedades para el Eje Y parte derecha
         YAxis yAxisRight = lineChart.getAxisRight();

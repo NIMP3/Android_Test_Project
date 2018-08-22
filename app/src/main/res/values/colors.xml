@@ -20,4 +20,9 @@
     <color name="colorYAxisLabel">#07a307</color>
     <color name="colorGridAxis">#8f1884</color>
     <color name="colorLimitLine">#000000</color>
+    <color name="colorZeroLine">#000011</color>
+
+    <color name="colorLineStudent1">#00a159</color>
+    <color name="colorLineStudent2">#d61250</color>
+    <color name="colorValueLabel">#646464</color>
 </resources>

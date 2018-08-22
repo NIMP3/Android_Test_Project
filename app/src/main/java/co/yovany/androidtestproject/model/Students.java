@@ -31,6 +31,24 @@ public class Students {
         return list;
     }
 
+    /*----------------------------------------------------------------------------------------------
+    * Obtiene el nombre de un Estudiante a través de su respectivo codigo
+    *
+    * @param code : Codigo del estudiante a buscar
+    * @return name : Nombre del estudiante*/
+    public static String getNameStudent( int code) {
+        String name = "";
+
+        for (Student student : students) {
+            if (student.getCode() == code) {
+                name = student.getName();
+                break;
+            }
+        }
+
+        return name;
+    }
+
     /*==============================================================================================
     GETTER AND SETTER
      */

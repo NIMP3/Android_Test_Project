@@ -14,8 +14,7 @@ public class Notes {
     }
 
     /*==============================================================================================
-    *METODOS
-     */
+    *METODOS*/
 
     /*----------------------------------------------------------------------------------------------
      *Construye y retorna una lista de notas
@@ -31,20 +30,25 @@ public class Notes {
         list.add(new Note( 3,4.8,3,1));
         //Notas del segundo Estudiante de la lista
         list.add(new Note(4,2.9,1,2));
-        list.add(new Note(5,4.9,2,2));
+        list.add(new Note(5,3.4,2,2));
+        list.add(new Note(6,4.3,3,2));
         //Notas del tercer Estudiante de la lista
-        list.add(new Note(6,3.1,1,3));
-        list.add(new Note(7,4.0,2,3));
+        list.add(new Note(7,3.1,1,3));
+        list.add(new Note(8,4.0,2,3));
 
         return list;
     }
+
+    /*----------------------------------------------------------------------------------------------
+    *@TODO Metodo para obtener una listado de notas con base en el tipo de actividad seleccionada*/
 
     /*----------------------------------------------------------------------------------------------
     * Genera los valores [X,Y] de la gráfica de rendimiento - Actividad
     * Eje X : Valores de las notas de cada actividad
     * Eje Y : Fechas de las actividades
     *
-    * @return <code></code> Listado de valores tipo String
+    * @param student : codigo del estudiante
+    * @return <code>ArrayList<Task></code> : Listado de valores tipo String
      */
     public static Vector<String> buildGraphicValues(int student) {
         Vector<String> values = new Vector<>();
