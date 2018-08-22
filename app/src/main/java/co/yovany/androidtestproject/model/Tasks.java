@@ -28,6 +28,16 @@ public class Tasks {
         return list;
     }
 
+    /*----------------------------------------------------------------------------------------------
+    * Obtiene un vector con los nombres de las actividades creadas hasta el momento
+    *
+    * @return <code>String[] names</code> : Vector de nombres de actividades*/
+    public static String[] getTasksNames() {
+        String[] names = new String[tasks.size()-1];
+        for (int i=0; i<tasks.size()-1; i++) names[i] = tasks.get(i).getType();
+        return names;
+    }
+
     /*==============================================================================================
     GETTER AND SETTER
      */

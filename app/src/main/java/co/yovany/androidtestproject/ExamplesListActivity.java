@@ -12,6 +12,7 @@ import co.yovany.androidtestproject.adapter.ExampleAdapterRecyclerView;
 import co.yovany.androidtestproject.model.Example;
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.view.ComponentEditTextActivity;
+import co.yovany.androidtestproject.view.ComponentIntentActivity;
 import co.yovany.androidtestproject.view.MPAndroidChartActivity;
 import co.yovany.androidtestproject.view.MainActivity;
 import co.yovany.androidtestproject.view.NestedScrollViewActivity;
@@ -66,6 +67,7 @@ public class ExamplesListActivity extends AppCompatActivity {
         examples.add(new Example(5,"RecyclerView by Cardview","En este ejemplo se evaluara un recyclerview en el que el Scroll se hace por CardView","https://i.imgur.com/1TqeLKl.png", StudentListActivity.class));
         examples.add(new Example(6,"MPAndroidChart Example","En este ejemplo se evaluaran las caracteristicas de MPAndroidChart para el manejo de gráficos","https://i.imgur.com/1TqeLKl.png", MPAndroidChartActivity.class));
         examples.add(new Example(7,"NestedScrollView Example","En este ejemplo se evaluaran las caracteristicas de NestedScrollView","https://i.imgur.com/1TqeLKl.png", NestedScrollViewActivity.class));
+        examples.add(new Example(8,"Intent Example","En este ejemplo se evaluaran las caracteristicas de Intent","https://i.imgur.com/1TqeLKl.png", ComponentIntentActivity.class));
 
         return examples;
     }

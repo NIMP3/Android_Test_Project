@@ -14,6 +14,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.highlight.ChartHighlighter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
@@ -31,6 +32,7 @@ import java.util.Vector;
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.model.Notes;
 import co.yovany.androidtestproject.model.Students;
+import co.yovany.androidtestproject.model.Tasks;
 
 public class MPAndroidChartActivity extends AppCompatActivity implements OnChartGestureListener,
         OnChartValueSelectedListener{
@@ -92,11 +94,28 @@ public class MPAndroidChartActivity extends AppCompatActivity implements OnChart
         buildAxis();
         stylingAxis();
         buildLimitLines();
+        buildAxisValueFormatter();
     }
 
     /*==============================================================================================
     * FUNCIONES
      */
+
+    /*----------------------------------------------------------------------------------------------
+    * */
+    private void buildAxisValueFormatter() {
+        XAxis xAxis = lineChart.getXAxis();
+        final String[] tasks = Tasks.getTasksNames();
+
+        IAxisValueFormatter formatter = new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return tasks[(int) value];
+            }
+        };
+
+        xAxis.setValueFormatter(formatter);
+    }
 
     /*----------------------------------------------------------------------------------------------
     * Determina Lineas Limites para los Ejes (X o Y)*/
@@ -179,7 +198,7 @@ public class MPAndroidChartActivity extends AppCompatActivity implements OnChart
         xAxis.setGranularityEnabled(false);
         /*Determina el angulo de las etiquetas sobre el Eje X
         * Solo en el eje X*/
-        xAxis.setLabelRotationAngle(45f);
+        xAxis.setLabelRotationAngle(90f);
 
         //Propiedades para el Eje Y parte izquierdo
         YAxis yAxisLeft = lineChart.getAxisLeft();

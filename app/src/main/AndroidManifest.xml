@@ -3,6 +3,7 @@
     package="co.yovany.androidtestproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -29,7 +30,8 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".view.StudentListActivity" />
         <activity android:name=".view.MPAndroidChartActivity" />
-        <activity android:name=".view.NestedScrollViewActivity"></activity>
+        <activity android:name=".view.NestedScrollViewActivity" />
+        <activity android:name=".view.ComponentIntentActivity"></activity>
     </application>
 
 </manifest>
