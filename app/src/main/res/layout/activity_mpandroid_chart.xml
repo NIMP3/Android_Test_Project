@@ -8,23 +8,22 @@
 
     <include layout="@layout/actionbar_toolbar"/>
 
-    <android.support.v4.widget.NestedScrollView
+    <FrameLayout
+        android:id="@+id/containerPrincipalGraphic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_marginBottom="60dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/lineChart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v4.widget.NestedScrollView>
-
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:background="@color/colorPrimary"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@color/selector_bottombar"
+        app:itemTextColor="@color/selector_bottombar"
+        app:menu="@menu/menu_graphic" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemChartBasic"
+        android:enabled="true"
+        android:title="@string/graphic_basic_item_title"
+        android:icon="@drawable/ic_basic_chart"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/itemChartLine"
+        android:enabled="true"
+        android:title="@string/chart_line_item_title"
+        android:icon="@drawable/ic_line_chart"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/itemChartBar"
+        android:enabled="true"
+        android:title="@string/chartbar_item_title"
+        android:icon="@drawable/ic_bar_chart"
+        app:showAsAction="ifRoom" />
+</menu>
