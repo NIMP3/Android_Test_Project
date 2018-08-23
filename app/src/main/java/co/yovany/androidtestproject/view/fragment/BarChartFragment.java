@@ -60,7 +60,7 @@ public class BarChartFragment extends Fragment {
      *
      * @return <code>List<Entry></code> : lista de entradas*/
     private List<BarEntry> buildEntries(int student) {
-        Vector<String> values = Notes.buildGraphicValues(student);
+        Vector<String> values = Notes.buildDateValues(1);
         List<BarEntry> listEntries = new ArrayList<>();
 
         for (String value : values) {

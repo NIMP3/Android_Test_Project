@@ -33,6 +33,7 @@ import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.model.Notes;
 import co.yovany.androidtestproject.model.Students;
 import co.yovany.androidtestproject.model.Tasks;
+import co.yovany.androidtestproject.utilities.ChartUtility;
 import co.yovany.androidtestproject.view.ToolbarOptions;
 
 /**
@@ -57,8 +58,8 @@ public class LineChartBasicFragment extends Fragment implements
 
         lineChart = view.findViewById(R.id.basicChart);
 
-        List<Entry> entriesStudent1 = buildEntries(1);
-        List<Entry> entriesStudent2 = buildEntries(2);
+        List<Entry> entriesStudent1 = ChartUtility.buildStudentEntries(1,"DATE");
+        List<Entry> entriesStudent2 = ChartUtility.buildStudentEntries(2,"DATE");
 
 
         LineDataSet dataSet1 =
@@ -115,7 +116,7 @@ public class LineChartBasicFragment extends Fragment implements
      * */
     private void buildAxisValueFormatter() {
         XAxis xAxis = lineChart.getXAxis();
-        final String[] tasks = Tasks.getTasksNames();
+        final String[] tasks = Notes.getTasksNames(1);
 
         IAxisValueFormatter formatter = new IAxisValueFormatter() {
             @Override
@@ -241,27 +242,6 @@ public class LineChartBasicFragment extends Fragment implements
         YAxis yAxisRight = lineChart.getAxisRight();
         yAxisRight.setDrawLabels(false);
     }
-
-    /*----------------------------------------------------------------------------------------------
-     * Contruye una Lista de entradas dependiendo del estudiante seleccionado
-     *
-     * @param student : Codigo del estudiante
-     *
-     * @return <code>List<Entry></code> : lista de entradas*/
-    private List<Entry> buildEntries(int student) {
-        Vector<String> values = Notes.buildGraphicValues(student);
-        List<Entry> listEntries = new ArrayList<>();
-
-        for (String value : values) {
-            String[] elements = value.split("-");
-            listEntries.add(new Entry(
-                    Float.parseFloat(elements[1]),
-                    Float.parseFloat(elements[0])));
-        }
-
-        return listEntries;
-    }
-
     /*----------------------------------------------------------------------------------------------
      * Evalúa las propiedades de la clase LineChart
      */

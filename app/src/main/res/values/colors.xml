@@ -25,4 +25,8 @@
     <color name="colorLineStudent1">#00a159</color>
     <color name="colorLineStudent2">#d61250</color>
     <color name="colorValueLabel">#646464</color>
+
+    <color name="colorTestLine">#432a9e</color>
+    <color name="colorWorkLine">#a72f2f</color>
+    <color name="colorExpoLine">#3dae6a</color>
 </resources>

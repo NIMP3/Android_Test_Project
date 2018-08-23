@@ -39,6 +39,7 @@ import co.yovany.androidtestproject.model.Notes;
 import co.yovany.androidtestproject.model.Students;
 import co.yovany.androidtestproject.model.Tasks;
 import co.yovany.androidtestproject.view.fragment.LineChartBasicFragment;
+import co.yovany.androidtestproject.view.fragment.LineChartFragment;
 
 public class MPAndroidChartActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
@@ -78,6 +79,9 @@ public class MPAndroidChartActivity extends AppCompatActivity implements
         switch (item.getItemId()) {
             case R.id.itemChartBasic:
                 launchFragment(new LineChartBasicFragment(),resource);
+                break;
+            case R.id.itemChartLine:
+                launchFragment(new LineChartFragment(), resource);
                 break;
         }
         return true;
