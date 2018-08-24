@@ -103,9 +103,11 @@
     <string name="Maps_button_text">ABRIR GOOGLE MAPS</string>
     <string name="takephoto_button_text">TOMAR UNA FOTO</string>
     <string name="sendemail_button_text">ENVIAR CORREO</string>
-    <string name="graphic_basic_item_title">BÁSICO</string>
+
     <string name="chart_line_item_title">LINEAS</string>
     <string name="chartbar_item_title">BARRAS</string>
+    <string name="chart_pie_item_title">CIRCULAR</string>
+
     <string name="test_legend">EXAMENES</string>
     <string name="work_legend">TRABAJOS</string>
     <string name="exposition_legend">EXPOSICIONES</string>

@@ -103,15 +103,15 @@ public class BarChartFragment extends Fragment {
 
         //Establecemos las propiedades por default para los Ejes(X,Y) de los Gráficos
         //Primer Gráfico
-        XAxis xAxis = barChart.getXAxis();
-        YAxis yAxisLeft = barChart.getAxisLeft();
-        YAxis yAxisRight = barChart.getAxisRight();
-        ChartUtility.buildAxesProperties(xAxis,yAxisLeft,yAxisRight);
+        ChartUtility.buildAxesProperties(
+                barChart.getXAxis(),
+                barChart.getAxisLeft(),
+                barChart.getAxisRight());
         //Segundo Gráfico
-        XAxis xAxis2 = barChartGroup.getXAxis();
-        YAxis yAxis2Left = barChartGroup.getAxisLeft();
-        YAxis yAxis2Right = barChartGroup.getAxisRight();
-        ChartUtility.buildAxesProperties(xAxis2,yAxis2Left,yAxis2Right);
+        ChartUtility.buildAxesProperties(
+                barChartGroup.getXAxis(),
+                barChartGroup.getAxisLeft(),
+                barChartGroup.getAxisRight());
         //Cuarto Gráfico
         ChartUtility.buildAxesProperties(
                 barChartHorizontal.getXAxis(),
