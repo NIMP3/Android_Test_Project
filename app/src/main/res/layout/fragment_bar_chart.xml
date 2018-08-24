@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.github.mikephil.charting.charts.BarChart xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/barChart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.BarChartFragment" />
+    tools:context=".view.fragment.BarChartFragment"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/general_padding_8">
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/barchart_height_250"/>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChartGroup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/barchart_height_250" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -39,9 +40,9 @@ public class LineChartFragment extends Fragment {
 
         lineChart = view.findViewById(R.id.lineChart);
 
-        List<Entry> entriesTest = ChartUtility.buildStudentEntries(1,"EXAMEN");
-        List<Entry> entriesWork = ChartUtility.buildStudentEntries(1,"TRABAJO");
-        List<Entry> entriesExpo = ChartUtility.buildStudentEntries(1,"EXPOSICIÓN");
+        List<Entry> entriesTest = ChartUtility.buildStudentEntries(2,"EXAMEN");
+        List<Entry> entriesWork = ChartUtility.buildStudentEntries(2,"TRABAJO");
+        List<Entry> entriesExpo = ChartUtility.buildStudentEntries(2,"EXPOSICIÓN");
 
         LineDataSet dataSetTest = new LineDataSet(entriesTest, getResources().getString(R.string.test_legend));
         LineDataSet dataSetWork = new LineDataSet(entriesWork, getResources().getString(R.string.work_legend));
@@ -55,6 +56,10 @@ public class LineChartFragment extends Fragment {
         dataSetWork.setColor(getResources().getColor(R.color.colorWorkLine));
         dataSetExpo.setColor(getResources().getColor(R.color.colorExpoLine));
 
+        dataSetTest.setCircleColor(getResources().getColor(R.color.colorTestLine));
+        dataSetWork.setCircleColor(getResources().getColor(R.color.colorWorkLine));
+        dataSetExpo.setCircleColor(getResources().getColor(R.color.colorExpoLine));
+
         List<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(dataSetTest);
         dataSets.add(dataSetWork);
@@ -63,6 +68,12 @@ public class LineChartFragment extends Fragment {
         LineData lineData = new LineData(dataSets);
         lineChart.setData(lineData);
         lineChart.invalidate();
+
+        XAxis xAxis = lineChart.getXAxis();
+        YAxis yAxisLeft = lineChart.getAxisLeft();
+        YAxis yAxisRight = lineChart.getAxisRight();
+
+        ChartUtility.buildAxesProperties(xAxis,yAxisLeft,yAxisRight);
 
         return view;
     }

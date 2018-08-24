@@ -105,7 +105,7 @@ public class Notes {
                 Task task = Tasks.getTask(note.getTask());
                 if (task != null) {
                     if (task.getType().equals(type))
-                        values.add(note.getValue() + "-" + task.getCode());
+                        values.add(task.getDate() + "-" + note.getValue());
                 }
             }
         }
@@ -127,7 +127,7 @@ public class Notes {
         for (Note note : notes) {
             if (note.getStudent() == student) {
                 Task task = Tasks.getTask(note.getTask());
-                if (task != null) values.add(note.getValue() + "-" + task.getCode());
+                if (task != null) values.add(task.getDate() + "-" + note.getValue());
             }
         }
 

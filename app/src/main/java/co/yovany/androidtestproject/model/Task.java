@@ -3,12 +3,12 @@ package co.yovany.androidtestproject.model;
 public class Task {
 
     private int code;
-    private long date;
+    private float date;
     private String type;
 
-    public Task(int code, String type) {
+    public Task(int code, String type, float date) {
         this.code = code;
-        this.date = System.currentTimeMillis();
+        this.date = date;
         this.type = type;
     }
 
@@ -20,7 +20,7 @@ public class Task {
         this.code = code;
     }
 
-    public long getDate() {
+    public float getDate() {
         return date;
     }
 

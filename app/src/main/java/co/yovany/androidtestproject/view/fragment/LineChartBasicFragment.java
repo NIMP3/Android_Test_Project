@@ -121,7 +121,7 @@ public class LineChartBasicFragment extends Fragment implements
         IAxisValueFormatter formatter = new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
-                return tasks[(int) value-1];
+                return tasks[(int) value];
             }
         };
 

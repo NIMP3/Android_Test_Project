@@ -38,6 +38,7 @@ import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.model.Notes;
 import co.yovany.androidtestproject.model.Students;
 import co.yovany.androidtestproject.model.Tasks;
+import co.yovany.androidtestproject.view.fragment.BarChartFragment;
 import co.yovany.androidtestproject.view.fragment.LineChartBasicFragment;
 import co.yovany.androidtestproject.view.fragment.LineChartFragment;
 
@@ -82,6 +83,9 @@ public class MPAndroidChartActivity extends AppCompatActivity implements
                 break;
             case R.id.itemChartLine:
                 launchFragment(new LineChartFragment(), resource);
+                break;
+            case R.id.itemChartBar:
+                launchFragment(new BarChartFragment(), resource);
                 break;
         }
         return true;
