@@ -22,6 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/barchart_height_250" />
 
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChartStacked"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/barchart_height_250" />
+
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/barChartHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/barchart_height_250" />
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

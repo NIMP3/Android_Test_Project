@@ -109,4 +109,5 @@
     <string name="test_legend">EXAMENES</string>
     <string name="work_legend">TRABAJOS</string>
     <string name="exposition_legend">EXPOSICIONES</string>
+    <string name="barchart_stacked_legend">Gráfico de barras apilado</string>
 </resources>

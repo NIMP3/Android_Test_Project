@@ -45,6 +45,8 @@ public class BarChartFragment extends Fragment {
 
         BarChart barChart = view.findViewById(R.id.barChart);
         BarChart barChartGroup = view.findViewById(R.id.barChartGroup);
+        BarChart barChartStacked = view.findViewById(R.id.barChartStacked);
+        BarChart barChartHorizontal = view.findViewById(R.id.barChartHorizontal);
 
         //Contruye las entradas para los gráficos
         //Primer Gráfico
@@ -53,6 +55,10 @@ public class BarChartFragment extends Fragment {
         List<BarEntry> entriesTest = ChartUtility.buildStudentBarEntries(1,"EXAMEN");
         List<BarEntry> entriesWork = ChartUtility.buildStudentBarEntries(1,"TRABAJO");
         List<BarEntry> entriesExpo = ChartUtility.buildStudentBarEntries(1,"EXPOSICIÓN");
+        //Tercer Gráfico
+        List<BarEntry> entriesStacked = new ArrayList<>();
+        entriesStacked.add(new BarEntry(0f, new float[]{10, 20, 30}));
+
 
         //Seteamos las entradas a los datos del gráfico
         //Primer Gráfico
@@ -61,7 +67,10 @@ public class BarChartFragment extends Fragment {
         BarDataSet dataSetTest = new BarDataSet(entriesTest, getResources().getString(R.string.test_legend));
         BarDataSet dataSetWork = new BarDataSet(entriesWork, getResources().getString(R.string.work_legend));
         BarDataSet dataSetExpo = new BarDataSet(entriesExpo, getResources().getString(R.string.exposition_legend));
+        //Tercer Gráfico
+        BarDataSet dataSetStacked = new BarDataSet(entriesStacked,getResources().getString(R.string.barchart_stacked_legend));
 
+        //Estilizando el Segundo Gráfico
         dataSetTest.setColor(getResources().getColor(R.color.colorTestLine));
         dataSetWork.setColor(getResources().getColor(R.color.colorWorkLine));
         dataSetExpo.setColor(getResources().getColor(R.color.colorExpoLine));
@@ -84,7 +93,13 @@ public class BarChartFragment extends Fragment {
         barChartGroup.setData(barDataGroup);
         barChart.setFitBars(true);
         barChartGroup.invalidate();
-
+        //Tercer Gráfico
+        BarData barDataStacked = new BarData(dataSetStacked);
+        barChartStacked.setData(barDataStacked);
+        barChartStacked.invalidate();
+        //Cuarto Gráfico
+        barChartHorizontal.setData(barData);
+        barChartHorizontal.invalidate();
 
         //Establecemos las propiedades por default para los Ejes(X,Y) de los Gráficos
         //Primer Gráfico
@@ -97,6 +112,11 @@ public class BarChartFragment extends Fragment {
         YAxis yAxis2Left = barChartGroup.getAxisLeft();
         YAxis yAxis2Right = barChartGroup.getAxisRight();
         ChartUtility.buildAxesProperties(xAxis2,yAxis2Left,yAxis2Right);
+        //Cuarto Gráfico
+        ChartUtility.buildAxesProperties(
+                barChartHorizontal.getXAxis(),
+                barChartHorizontal.getAxisLeft(),
+                barChartHorizontal.getAxisRight());
 
         return view;
     }
