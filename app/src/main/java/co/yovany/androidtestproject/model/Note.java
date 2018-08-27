@@ -3,11 +3,11 @@ package co.yovany.androidtestproject.model;
 public class Note {
 
     private int code;
-    private double value;
+    private float value;
     private int task;
     private int student;
 
-    public Note(int code, double value, int task, int student) {
+    public Note(int code, float value, int task, int student) {
         this.code = code;
         this.value = value;
         this.task = task;
@@ -22,11 +22,11 @@ public class Note {
         this.code = code;
     }
 
-    public double getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(long value) {
+    public void setValue(float value) {
         this.value = value;
     }
 

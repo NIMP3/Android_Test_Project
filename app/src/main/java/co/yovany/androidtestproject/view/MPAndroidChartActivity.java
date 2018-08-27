@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.view.fragment.BarChartFragment;
 import co.yovany.androidtestproject.view.fragment.LineChartFragment;
+import co.yovany.androidtestproject.view.fragment.PieChartFragment;
 
 public class MPAndroidChartActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener {
@@ -53,6 +54,9 @@ public class MPAndroidChartActivity extends AppCompatActivity implements
                 break;
             case R.id.itemChartBar:
                 launchFragment(new BarChartFragment(), resource);
+                break;
+            case R.id.itemChartPie:
+                launchFragment(new PieChartFragment(), resource);
                 break;
         }
         return true;

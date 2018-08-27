@@ -5,6 +5,7 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 
 import java.util.ArrayList;
@@ -75,10 +76,38 @@ public class ChartUtility {
     }
 
     /*----------------------------------------------------------------------------------------------
+    * Construye un listado de entradas para un PieChart dependiendo del tipo de gráfico
+    *
+    * @param type : tipo de gráfico
+    *
+    * @return <code>List<PieEntry entries</code>*/
+    public static List<PieEntry> buildStudentPieEntries(String type) {
+        List<PieEntry> entries = new ArrayList<>();
+        String[] labels;
+        float[] percentages;
+
+        switch (type) {
+            case "PERFORMANCE":
+                labels = new String[]{"DES. BAJO","DES. BASICO","DES. ALTO","DES SUPERIOR"};
+                percentages = Notes.percentageByPerformance();
+                for (int i=0; i<percentages.length; i++)
+                    entries.add(new PieEntry(percentages[i],labels[i]));
+                break;
+            case "TASK":
+                labels = new String[]{"EXAMEN","TRABAJO","EXPOSICIÓN"};
+                percentages = Notes.percentageByTask();
+                for (int i=0; i<percentages.length; i++)
+                    entries.add(new PieEntry(percentages[i],labels[i]));
+        }
+
+        return entries;
+    }
+
+    /*----------------------------------------------------------------------------------------------
     * Construye un Formateador de valores con los meses de un año
     *
     * @return <code>IAxisValuesFormatter</code> : Formateador de meses para el eje X de un gráfico*/
-    public static IAxisValueFormatter buildXAxisMonthFormatter() {
+    private static IAxisValueFormatter buildXAxisMonthFormatter() {
         final String[] months = new String[] {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
 
         return new IAxisValueFormatter() {
@@ -101,7 +130,7 @@ public class ChartUtility {
         xAxis.setAxisMinimum(1f);
         xAxis.setAxisMaximum(12f);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setValueFormatter(ChartUtility.buildXAxisMonthFormatter());
+        xAxis.setValueFormatter(buildXAxisMonthFormatter());
         xAxis.setLabelCount(12,true);
 
         //Propiedades para el Eje Y izquierdo
