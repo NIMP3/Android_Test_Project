@@ -1,6 +1,7 @@
 package co.yovany.androidtestproject.view.fragment;
 
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,6 +25,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +60,6 @@ public class LineChartFragment extends Fragment implements
         //Construye cada uno de los gráficos
         buildTaskChart();
         buildTestChart();
-
 
         return view;
     }
@@ -142,6 +143,22 @@ public class LineChartFragment extends Fragment implements
         dataSetWork.setCircleColor(getResources().getColor(R.color.colorWorkLine));
         dataSetExpo.setCircleColor(getResources().getColor(R.color.colorExpoLine));
 
+
+        //Determinamos un array de colores y seteamos uno por cada punto en el gráfico
+        int[] colors = new int[]{
+                R.color.colorPrimary,
+                R.color.colorPrimaryDark,
+                R.color.colorAccent,
+                R.color.colorDivider,
+                R.color.colorPrimaryText};
+
+        dataSetTest.setColors(colors, getContext());
+        dataSetTest.setCircleColors(colors, getContext());
+
+        //Seteamos por cada punto un color, a través de un array de colores del sistema
+        dataSetExpo.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataSetExpo.setCircleColors(ColorTemplate.MATERIAL_COLORS);
+
         List<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(dataSetTest);
         dataSets.add(dataSetWork);
@@ -156,6 +173,21 @@ public class LineChartFragment extends Fragment implements
         YAxis yAxisRight = lineChart.getAxisRight();
 
         ChartUtility.buildAxesProperties(xAxis,yAxisLeft,yAxisRight);
+
+        xAxis.setGridColor(getResources().getColor(R.color.colorIcons));
+        yAxisLeft.setGridColor(getResources().getColor(R.color.colorIcons));
+
+        //Habilita/Deshabilita un fondo sobre la grilla del gráfico
+        lineChart.setDrawGridBackground(true);
+        //Determina un color para la grilla del gráfico
+        lineChart.setGridBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+
+        //Habilita/Deshabiita dibujar un borde para el gráfico
+        lineChart.setDrawBorders(true);
+        //Determina el color y el ancho del borde
+        lineChart.setBorderColor(getResources().getColor(R.color.colorPrimaryText));
+        lineChart.setBorderWidth(2f);
+
     }
 
     /*----------------------------------------------------------------------------------------------

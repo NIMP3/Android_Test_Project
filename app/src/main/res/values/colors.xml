@@ -29,4 +29,5 @@
     <color name="colorTestLine">#432a9e</color>
     <color name="colorWorkLine">#a72f2f</color>
     <color name="colorExpoLine">#3dae6a</color>
+    <color name="colorTransparentPieChart">#ac060259</color>
 </resources>

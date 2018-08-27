@@ -118,6 +118,12 @@ public class BarChartFragment extends Fragment {
                 barChartHorizontal.getAxisLeft(),
                 barChartHorizontal.getAxisRight());
 
+
+        //Habilita/Deshabilita dibujar los valores sobre cada barra despues de su valor maximo
+        barChart.setDrawValueAboveBar(false);
+        //Habilita/Deshabilita dibujar una area gris detras de la barra y despues del valor maximo
+        barChart.setDrawBarShadow(true);
+
         return view;
     }
 
