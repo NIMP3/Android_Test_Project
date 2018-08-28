@@ -8,4 +8,6 @@
     <dimen name="cardview_child_radius">5dp</dimen>
     <dimen name="general_padding_8">8dp</dimen>
     <dimen name="chart_height_250">250dp</dimen>
+    <dimen name="fab_margin_16">16dp</dimen>
+    <dimen name="fab_elevation_5">5dp</dimen>
 </resources>

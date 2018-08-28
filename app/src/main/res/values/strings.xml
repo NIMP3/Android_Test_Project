@@ -114,4 +114,7 @@
     <string name="barchart_stacked_legend">Gráfico de barras apilado</string>
     <string name="performance_legend">DESEMPEÑO ESTUDIANTIL</string>
     <string name="chart_message_nodata">Los datos no se han cargado</string>
+    <string name="websearch_button_text">BUSCAR EN LA WEB</string>
+    <string name="dial_button_text">MARCAR UN NUMERO TELEFÓNICO</string>
+    <string name="Street_button_text">ABRIR GOOGLE STREETVIEW</string>
 </resources>

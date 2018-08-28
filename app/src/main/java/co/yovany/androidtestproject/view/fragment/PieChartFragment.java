@@ -109,11 +109,6 @@ public class PieChartFragment extends Fragment {
 
         buildLegend();
 
-        dataSet.addEntry(new PieEntry(40f,"Nuevo"));
-        dataSet.addColor(ColorTemplate.COLOR_SKIP);
-        pieChart.notifyDataSetChanged();
-        pieChart.invalidate();
-
         return view;
     }
 

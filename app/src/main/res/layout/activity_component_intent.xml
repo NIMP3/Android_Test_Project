@@ -8,47 +8,75 @@
 
     <include layout="@layout/actionbar_toolbar"/>
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/general_padding_8"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <Button
-            android:id="@+id/btnWebPage"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/webpage_button_text"
-            android:theme="@style/RaisedButtonDark" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/general_padding_8">
 
-        <Button
-            android:id="@+id/btnCall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/call_button_text"
-            android:theme="@style/RaisedButtonDark" />
+            <Button
+                android:id="@+id/btnWebPage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/webpage_button_text"
+                android:theme="@style/RaisedButtonDark" />
 
-        <Button
-            android:id="@+id/btnMaps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Maps_button_text"
-            android:theme="@style/RaisedButtonDark" />
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/websearch_button_text"
+                android:theme="@style/RaisedButtonDark" />
 
-        <Button
-            android:id="@+id/btnTakePhoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/takephoto_button_text"
-            android:theme="@style/RaisedButtonDark" />
+            <Button
+                android:id="@+id/btnCall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/call_button_text"
+                android:theme="@style/RaisedButtonDark" />
 
-        <Button
-            android:id="@+id/btnSendEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sendemail_button_text"
-            android:theme="@style/RaisedButtonDark" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnDial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dial_button_text"
+                android:theme="@style/RaisedButtonDark" />
+
+            <Button
+                android:id="@+id/btnMaps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Maps_button_text"
+                android:theme="@style/RaisedButtonDark" />
+
+            <Button
+                android:id="@+id/btnOpenStreet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Street_button_text"
+                android:theme="@style/RaisedButtonDark" />
+
+            <Button
+                android:id="@+id/btnTakePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/takephoto_button_text"
+                android:theme="@style/RaisedButtonDark" />
+
+            <Button
+                android:id="@+id/btnSendEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sendemail_button_text"
+                android:theme="@style/RaisedButtonDark" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

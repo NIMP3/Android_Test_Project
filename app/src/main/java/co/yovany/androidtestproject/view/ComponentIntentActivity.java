@@ -1,6 +1,7 @@
 package co.yovany.androidtestproject.view;
 
 import android.Manifest;
+import android.app.SearchManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -23,14 +24,20 @@ public class ComponentIntentActivity extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_component_intent);
 
         Button btnWebPage = findViewById(R.id.btnWebPage);
+        Button btnSearch = findViewById(R.id.btnSearch);
         Button btnCall = findViewById(R.id.btnCall);
+        Button btnDial = findViewById(R.id.btnDial);
         Button btnMaps = findViewById(R.id.btnMaps);
+        Button btnStreet = findViewById(R.id.btnOpenStreet);
         Button btnTakePhoto = findViewById(R.id.btnTakePhoto);
         Button btnSendEmail = findViewById(R.id.btnSendEmail);
 
         btnWebPage.setOnClickListener(this);
+        btnSearch.setOnClickListener(this);
         btnCall.setOnClickListener(this);
+        btnDial.setOnClickListener(this);
         btnMaps.setOnClickListener(this);
+        btnStreet.setOnClickListener(this);
         btnTakePhoto.setOnClickListener(this);
         btnSendEmail.setOnClickListener(this);
 
@@ -46,6 +53,16 @@ public class ComponentIntentActivity extends AppCompatActivity implements View.O
      * @param page : URL de la pagina web*/
     public void openWebPage(String page) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(page));
+        startActivity(intent);
+    }
+
+    /*----------------------------------------------------------------------------------------------
+    * Realiza una busqueda web
+    *
+    * @param query : Texto a consultar*/
+    private void webSearch(String query, String url) {
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH, Uri.parse(url));
+        intent.putExtra(SearchManager.QUERY, query);
         startActivity(intent);
     }
 
@@ -68,12 +85,32 @@ public class ComponentIntentActivity extends AppCompatActivity implements View.O
     }
 
     /*----------------------------------------------------------------------------------------------
+    * Marca un determinado numero telefónico y deja la opción para que el usuario llame
+    *
+    * @param phone : numero telefónico*/
+    private void dialPhoneNumber(String phone) {
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(phone));
+        startActivity(intent);
+    }
+
+    /*----------------------------------------------------------------------------------------------
     * Abre Google Maps con una posición determinada
     *
     * @param latitude : Latitud
     * @param longitude : Longitud*/
     private void openGoogleMaps(float latitude, float longitude) {
         String position = "geo:" + latitude + "," + longitude;
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(position));
+        startActivity(intent);
+    }
+
+    /*----------------------------------------------------------------------------------------------
+    * Abre Google StreetView con una posición (longitud, latitud) determinada
+    *
+    * @param latitude : Latitud
+    * @param longitude : Longitud*/
+    private void openGoogleStreetView(float latitude, float longitude) {
+        String position = "google.streetview:cbll=" + latitude + "," + longitude;
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(position));
         startActivity(intent);
     }
@@ -108,11 +145,20 @@ public class ComponentIntentActivity extends AppCompatActivity implements View.O
             case R.id.btnWebPage:
                 openWebPage("https://github.com/NIMP3");
                 break;
+            case R.id.btnSearch:
+                webSearch("platzi","https://www.google.com");
+                break;
             case R.id.btnCall:
                 callPhone("tel:3168460999");
                 break;
+            case R.id.btnDial:
+                dialPhoneNumber("tel:3168460999");
+                break;
             case R.id.btnMaps:
                 openGoogleMaps(41.656313f, -0.877351f);
+                break;
+            case R.id.btnOpenStreet:
+                openGoogleStreetView(41.656313f, -0.877351f);
                 break;
             case R.id.btnTakePhoto:
                 takePhoto();

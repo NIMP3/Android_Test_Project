@@ -1,29 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context=".view.fragment.LineChartFragment"
-    android:fillViewport="true">
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.LineChartFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.v4.widget.NestedScrollView
         android:layout_height="match_parent"
-        android:padding="@dimen/general_padding_8"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:fillViewport="true">
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/lineTestChart"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:background="@color/colorPrimaryLight"
-            android:layout_height="@dimen/chart_height_250" />
+            android:layout_height="match_parent"
+            android:padding="@dimen/general_padding_8"
+            android:orientation="vertical">
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/lineChart"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/chart_height_250"/>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineTestChart"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryLight"
+                android:layout_height="@dimen/chart_height_250" />
 
-    </LinearLayout>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height_250"/>
 
-</android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabNewPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin_16"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add"
+        app:elevation="@dimen/fab_elevation_5" />
+</android.support.design.widget.CoordinatorLayout>

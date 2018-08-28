@@ -4,6 +4,8 @@ package co.yovany.androidtestproject.view.fragment;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.service.autofill.Dataset;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +31,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.model.Notes;
@@ -43,6 +46,8 @@ public class LineChartFragment extends Fragment implements
         OnChartValueSelectedListener {
 
     private LineChart lineChart, lineTestChart;
+    private LineDataSet dataSetTest;
+    private FloatingActionButton fabNewPoint;
 
     public LineChartFragment() {
         // Required empty public constructor
@@ -57,6 +62,14 @@ public class LineChartFragment extends Fragment implements
         lineChart = view.findViewById(R.id.lineChart);
         lineTestChart = view.findViewById(R.id.lineTestChart);
 
+        fabNewPoint = view.findViewById(R.id.fabNewPoint);
+        fabNewPoint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addNewPoint();
+            }
+        });
+
         //Construye cada uno de los gráficos
         buildTaskChart();
         buildTestChart();
@@ -66,6 +79,28 @@ public class LineChartFragment extends Fragment implements
 
     /*==============================================================================================
     * FUNCIONES*/
+
+    /*----------------------------------------------------------------------------------------------
+    * Añade un nuevo punto al gráfico para el grupo de datos de tipo EXAMEN en tiempo de ejecución
+    *
+    * @param <code>View view</code> Vista que llama el metodo*/
+    public void addNewPoint() {
+        //float point = (float) Math.random()*(5);
+        //int dayRandom = (int) Math.ceil(Math.random()*(12-1)+1);
+        //final float day = 1/31;
+
+        Entry entry = new Entry(11.43f,2.5f);
+        if (dataSetTest != null){
+            dataSetTest.addEntry(entry);
+            dataSetTest.addColor(ColorTemplate.getHoloBlue());
+            lineChart.notifyDataSetChanged();
+            lineChart.invalidate();
+
+            fabNewPoint.setEnabled(false);
+            fabNewPoint.setBackgroundColor(getResources().getColor(R.color.colorSecondaryText));
+        }
+
+    }
 
     /*----------------------------------------------------------------------------------------------
     * Construye un gráfico de lineas en el cual se analizan las diferentes propiedades de
@@ -127,7 +162,7 @@ public class LineChartFragment extends Fragment implements
         List<Entry> entriesWork = ChartUtility.buildStudentEntries(2,"TRABAJO");
         List<Entry> entriesExpo = ChartUtility.buildStudentEntries(2,"EXPOSICIÓN");
 
-        LineDataSet dataSetTest = new LineDataSet(entriesTest, getResources().getString(R.string.test_legend));
+        dataSetTest = new LineDataSet(entriesTest, getResources().getString(R.string.test_legend));
         LineDataSet dataSetWork = new LineDataSet(entriesWork, getResources().getString(R.string.work_legend));
         LineDataSet dataSetExpo = new LineDataSet(entriesExpo, getResources().getString(R.string.exposition_legend));
 
