@@ -2,6 +2,7 @@ package co.yovany.androidtestproject.view.fragment;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,9 @@ import co.yovany.androidtestproject.utilities.ChartUtility;
  */
 public class BarChartFragment extends Fragment {
 
+    BarChart barChart, barChartGroup, barChartStacked, barChartH;
+    BarData barData;
+    FloatingActionButton fabNewGroup;
 
     public BarChartFragment() {
         // Required empty public constructor
@@ -43,47 +48,97 @@ public class BarChartFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bar_chart, container, false);
 
-        BarChart barChart = view.findViewById(R.id.barChart);
-        BarChart barChartGroup = view.findViewById(R.id.barChartGroup);
-        BarChart barChartStacked = view.findViewById(R.id.barChartStacked);
-        BarChart barChartHorizontal = view.findViewById(R.id.barChartHorizontal);
+        barChart = view.findViewById(R.id.barChart);
+        barChartGroup = view.findViewById(R.id.barChartGroup);
+        barChartStacked = view.findViewById(R.id.barChartStacked);
+        barChartH = view.findViewById(R.id.barChartHorizontal);
 
-        //Contruye las entradas para los gráficos
-        //Primer Gráfico
+        fabNewGroup = view.findViewById(R.id.fabNewGroup);
+
+        buildBarChart(view);
+        buildBarChartGroup(view);
+        buildBarChartStacked(view);
+        buildBarChartH(view);
+
+        modifyViewport();
+
+        fabNewGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addNewGroup();
+            }
+        });
+
+        return view;
+    }
+
+    /*==============================================================================================
+     * FUNCIONES
+     */
+
+    /*----------------------------------------------------------------------------------------------
+    * Añade un grupo de datos al gráfico en tiempo de ejecución*/
+    private void addNewGroup() {
+        List<BarEntry> entries = new ArrayList<>();
+
+        entries.add(new BarEntry(4.12f,3.0f)); //fecha : 12 de Abril, valor nota : 3.0
+        entries.add(new BarEntry(7.23f,4.1f)); //fecha : 23 de Julio, valor nota : 4.1
+        entries.add(new BarEntry(8.09f,3.8f)); //fecha : 9 de Agosto, valor nota : 3.8
+
+        BarDataSet barDataSet = new BarDataSet(entries,getResources().getString(R.string.barchart_new_data));
+        barData.addDataSet(barDataSet);
+        barData.notifyDataChanged();
+        barChart.notifyDataSetChanged();
+        barChart.invalidate();
+
+        //Resetea el zoom, (zoom out) establece el gráfico en su posición original
+        barChart.fitScreen();
+
+        fabNewGroup.setVisibility(View.GONE);
+    }
+
+    /*----------------------------------------------------------------------------------------------
+    * Construye el primer Gráfico de Barras*/
+    private void buildBarChart(View view) {
         List<BarEntry> entries = ChartUtility.buildStudentBarEntries(1,"DATE");
-        //Segundo Gráfico
-        List<BarEntry> entriesTest = ChartUtility.buildStudentBarEntries(1,"EXAMEN");
-        List<BarEntry> entriesWork = ChartUtility.buildStudentBarEntries(1,"TRABAJO");
-        List<BarEntry> entriesExpo = ChartUtility.buildStudentBarEntries(1,"EXPOSICIÓN");
-        //Tercer Gráfico
-        List<BarEntry> entriesStacked = new ArrayList<>();
-        entriesStacked.add(new BarEntry(0f, new float[]{10, 20, 30}));
-
-
-        //Seteamos las entradas a los datos del gráfico
-        //Primer Gráfico
         BarDataSet dataSet = new BarDataSet(entries, Students.getNameStudent(1));
-        //Segundo Gráfico
-        BarDataSet dataSetTest = new BarDataSet(entriesTest, getResources().getString(R.string.test_legend));
-        BarDataSet dataSetWork = new BarDataSet(entriesWork, getResources().getString(R.string.work_legend));
-        BarDataSet dataSetExpo = new BarDataSet(entriesExpo, getResources().getString(R.string.exposition_legend));
-        //Tercer Gráfico
-        BarDataSet dataSetStacked = new BarDataSet(entriesStacked,getResources().getString(R.string.barchart_stacked_legend));
 
-        //Estilizando el Segundo Gráfico
-        dataSetTest.setColor(getResources().getColor(R.color.colorTestLine));
-        dataSetWork.setColor(getResources().getColor(R.color.colorWorkLine));
-        dataSetExpo.setColor(getResources().getColor(R.color.colorExpoLine));
-
-        //Enviamos los datos a los respectivos Gráficos
-        //Primer Gráfico
-        BarData barData = new BarData(dataSet);
+        barData = new BarData(dataSet);
         //Determina el ancho de las barras
         barData.setBarWidth(0.9f);
         barChart.setData(barData);
         barChart.setFitBars(true);
         barChart.invalidate();
-        //Segundo Gráfico
+
+        //Establecemos las propiedades por default para los Ejes(X,Y) del gráfico
+        ChartUtility.buildAxesProperties(
+                barChart.getXAxis(),
+                barChart.getAxisLeft(),
+                barChart.getAxisRight());
+
+        //Habilita/Deshabilita dibujar los valores sobre cada barra despues de su valor maximo
+        barChart.setDrawValueAboveBar(false);
+        //Habilita/Deshabilita dibujar una area gris detras de la barra y despues del valor maximo
+        barChart.setDrawBarShadow(true);
+        ChartUtility.buildNoData(barChart, view.getContext());
+    }
+
+    /*----------------------------------------------------------------------------------------------
+    * Construye el segundo Gráfico de Barras por grupos*/
+    private void buildBarChartGroup(View view) {
+        List<BarEntry> entriesTest = ChartUtility.buildStudentBarEntries(1,"EXAMEN");
+        List<BarEntry> entriesWork = ChartUtility.buildStudentBarEntries(1,"TRABAJO");
+        List<BarEntry> entriesExpo = ChartUtility.buildStudentBarEntries(1,"EXPOSICIÓN");
+
+        BarDataSet dataSetTest = new BarDataSet(entriesTest, getResources().getString(R.string.test_legend));
+        BarDataSet dataSetWork = new BarDataSet(entriesWork, getResources().getString(R.string.work_legend));
+        BarDataSet dataSetExpo = new BarDataSet(entriesExpo, getResources().getString(R.string.exposition_legend));
+
+        //Establece los colores de cada grupo de datos
+        dataSetTest.setColor(getResources().getColor(R.color.colorTestLine));
+        dataSetWork.setColor(getResources().getColor(R.color.colorWorkLine));
+        dataSetExpo.setColor(getResources().getColor(R.color.colorExpoLine));
+
         List<IBarDataSet> dataSets = new ArrayList<>();
         dataSets.add(dataSetTest);
         dataSets.add(dataSetWork);
@@ -93,41 +148,66 @@ public class BarChartFragment extends Fragment {
         barChartGroup.setData(barDataGroup);
         barChart.setFitBars(true);
         barChartGroup.invalidate();
-        //Tercer Gráfico
-        BarData barDataStacked = new BarData(dataSetStacked);
-        barChartStacked.setData(barDataStacked);
-        barChartStacked.invalidate();
-        //Cuarto Gráfico
-        barChartHorizontal.setData(barData);
-        barChartHorizontal.invalidate();
 
-        //Establecemos las propiedades por default para los Ejes(X,Y) de los Gráficos
-        //Primer Gráfico
-        ChartUtility.buildAxesProperties(
-                barChart.getXAxis(),
-                barChart.getAxisLeft(),
-                barChart.getAxisRight());
-        //Segundo Gráfico
+        //Establecemos las propiedades por default para los Ejes(X,Y) del gráfico
         ChartUtility.buildAxesProperties(
                 barChartGroup.getXAxis(),
                 barChartGroup.getAxisLeft(),
                 barChartGroup.getAxisRight());
-        //Cuarto Gráfico
-        ChartUtility.buildAxesProperties(
-                barChartHorizontal.getXAxis(),
-                barChartHorizontal.getAxisLeft(),
-                barChartHorizontal.getAxisRight());
 
-
-        //Habilita/Deshabilita dibujar los valores sobre cada barra despues de su valor maximo
-        barChart.setDrawValueAboveBar(false);
-        //Habilita/Deshabilita dibujar una area gris detras de la barra y despues del valor maximo
-        barChart.setDrawBarShadow(true);
-
-        return view;
+        ChartUtility.buildNoData(barChartGroup, view.getContext());
     }
 
-    /*==============================================================================================
-     * FUNCIONES
-     */
+    /*----------------------------------------------------------------------------------------------
+    * Construye el tercer Gráfico de Barras con datos apilados*/
+    private void buildBarChartStacked(View view) {
+        List<BarEntry> entriesStacked = new ArrayList<>();
+        entriesStacked.add(new BarEntry(0f, new float[]{10, 20, 30}));
+
+        BarDataSet dataSetStacked = new BarDataSet(entriesStacked,getResources().getString(R.string.barchart_stacked_legend));
+        dataSetStacked.setColors(ColorTemplate.MATERIAL_COLORS);
+
+        BarData barDataStacked = new BarData(dataSetStacked);
+        barChartStacked.setData(barDataStacked);
+        barChartStacked.invalidate();
+
+        ChartUtility.buildNoData(barChartStacked, view.getContext());
+    }
+
+    /*----------------------------------------------------------------------------------------------
+    * Construye el cuarto Gráfico de Barras Horizontal*/
+    private void buildBarChartH(View view) {
+        List<BarEntry> entriesH = ChartUtility.buildStudentBarEntries(2,"DATE");
+        BarDataSet dataSetH = new BarDataSet(entriesH, Students.getNameStudent(2));
+
+        BarData barDataH = new BarData(dataSetH);
+        barChartH.setData(barDataH);
+        barChartH.invalidate();
+
+        ChartUtility.buildAxesProperties(
+                barChartH.getXAxis(),
+                barChartH.getAxisLeft(),
+                barChartH.getAxisRight());
+
+        ChartUtility.buildNoData(barChartH, view.getContext());
+    }
+
+    /*----------------------------------------------------------------------------------------------
+    * Modifica la ventana (Viewport) del primer gráfico*/
+    private void modifyViewport() {
+        /*Determina el rango maximo de valores que se visualizan en el gráfico
+        * NOTA: El valor no debe ser inferior al total de entradas en el gráfico*/
+        barChart.setVisibleXRangeMaximum(12f);
+        /*Determina el rango minimo de valores que se visualizan en el gráfico
+        * NOTA: Limita el zoom al rango minimo*/
+        barChart.setVisibleXRangeMinimum(5f);
+        /*NOTA: El valor puede ser inferior al total de entradas en el gráfico*/
+        barChart.setVisibleYRangeMaximum(5f, barChart.getAxisLeft().getAxisDependency());
+        barChart.setVisibleYRangeMinimum(5f, barChart.getAxisLeft().getAxisDependency());
+
+        //Añade un tamaño extra a las compensaciones calculadas por la libreria
+        barChart.setExtraOffsets(0,0,0,15);
+
+        barChart.moveViewToX(250f);
+    }
 }

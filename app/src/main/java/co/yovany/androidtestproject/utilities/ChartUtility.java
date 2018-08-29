@@ -1,5 +1,9 @@
 package co.yovany.androidtestproject.utilities;
 
+import android.content.Context;
+import android.graphics.Typeface;
+
+import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -12,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.model.Notes;
 
 public class ChartUtility {
@@ -141,5 +146,12 @@ public class ChartUtility {
 
         //Propiedades para el Eje Y derecho
         yAxisRight.setEnabled(false);
+    }
+    /*----------------------------------------------------------------------------------------------
+    * Construye el mensaje en caso de que no se puedan cargar los datos en el gráfico*/
+    public static void buildNoData(Chart chart, Context context) {
+        chart.setNoDataText(context.getResources().getString(R.string.chart_message_nodata));
+        chart.setNoDataTextColor(context.getResources().getColor(R.color.colorAccent));
+        chart.setNoDataTextTypeface(Typeface.DEFAULT_BOLD);
     }
 }

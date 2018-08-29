@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.service.autofill.Dataset;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,20 +51,21 @@ public class PieChartFragment extends Fragment {
 
         pieChart = view.findViewById(R.id.pieChart);
         pieChartTask = view.findViewById(R.id.pieChartTask);
+        FloatingActionButton fabRemove = view.findViewById(R.id.fabRemove);
 
         List<PieEntry> entries = ChartUtility.buildStudentPieEntries("PERFORMANCE");
         List<PieEntry> entriesTask = ChartUtility.buildStudentPieEntries("TASK");
 
-        PieDataSet dataSet = new PieDataSet(entries,getResources().getString(R.string.performance_legend));
+        final PieDataSet dataSet = new PieDataSet(entries,getResources().getString(R.string.performance_legend));
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        dataSet.setValueFormatter(new PercentFormatter());
+
         PieData data = new PieData(dataSet);
         pieChart.setData(data);
         pieChart.invalidate();
 
         //Determina el texto a visualizar cuando los datos no se han cargado
-        pieChart.setNoDataText(getResources().getString(R.string.chart_message_nodata));
-        pieChart.setNoDataTextColor(getResources().getColor(R.color.colorAccent));
-        pieChart.setNoDataTextTypeface(Typeface.DEFAULT_BOLD);
+        ChartUtility.buildNoData(pieChart,view.getContext());
 
         PieDataSet dataSetTask = new PieDataSet(entriesTask, "");
 
@@ -109,6 +111,18 @@ public class PieChartFragment extends Fragment {
 
         buildLegend();
 
+        //Borra la primera entrada del gráfico en ejcución
+        fabRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (dataSet.removeFirst()) {
+                    dataSet.notifyDataSetChanged();
+                    pieChart.notifyDataSetChanged();
+                    pieChart.invalidate();
+                }
+            }
+        });
+
         return view;
     }
 
@@ -142,8 +156,6 @@ public class PieChartFragment extends Fragment {
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
         legend.setOrientation(Legend.LegendOrientation.VERTICAL);
         legend.setDrawInside(false);
-
-
 
         //Crea contenido extra en la leyenda
         legend.setExtra(ColorTemplate.MATERIAL_COLORS, new String[] {"ITEM1","ITEM2","ITEM3"});

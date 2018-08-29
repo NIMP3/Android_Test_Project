@@ -96,8 +96,7 @@ public class LineChartFragment extends Fragment implements
             lineChart.notifyDataSetChanged();
             lineChart.invalidate();
 
-            fabNewPoint.setEnabled(false);
-            fabNewPoint.setBackgroundColor(getResources().getColor(R.color.colorSecondaryText));
+            fabNewPoint.setVisibility(View.GONE);
         }
 
     }

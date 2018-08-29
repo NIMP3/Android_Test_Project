@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.BarChartFragment"
-    android:fillViewport="true">
+    tools:context=".view.fragment.BarChartFragment">
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/general_padding_8">
+        android:fillViewport="true">
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChart"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/chart_height_250"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/general_padding_8">
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChartGroup"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/chart_height_250" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height_250"/>
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChartStacked"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/chart_height_250" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChartGroup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height_250" />
 
-        <com.github.mikephil.charting.charts.HorizontalBarChart
-            android:id="@+id/barChartHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/chart_height_250" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChartStacked"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height_250" />
 
-    </LinearLayout>
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/barChartHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/chart_height_250" />
 
-</android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabNewGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin_16"
+        android:elevation="@dimen/fab_elevation_5"
+        android:src="@drawable/ic_add"
+        android:layout_gravity="end|bottom"
+        android:clickable="true"
+        android:focusable="true"/>
+</android.support.design.widget.CoordinatorLayout>
