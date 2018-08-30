@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
@@ -110,6 +111,10 @@ public class PieChartFragment extends Fragment {
         pieChartTask.setRotationEnabled(false);
 
         buildLegend();
+
+        //Animaciones sobre los gráficos
+        pieChart.animateX(2000, Easing.EasingOption.EaseOutCirc);
+        pieChartTask.animateY(2000, Easing.EasingOption.EaseOutBounce);
 
         //Borra la primera entrada del gráfico en ejcución
         fabRemove.setOnClickListener(new View.OnClickListener() {

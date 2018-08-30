@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -156,6 +157,8 @@ public class BarChartFragment extends Fragment {
                 barChartGroup.getAxisRight());
 
         ChartUtility.buildNoData(barChartGroup, view.getContext());
+
+        barChartGroup.animateY(3000, Easing.EasingOption.EaseInOutCirc);
     }
 
     /*----------------------------------------------------------------------------------------------
@@ -207,7 +210,20 @@ public class BarChartFragment extends Fragment {
 
         //Añade un tamaño extra a las compensaciones calculadas por la libreria
         barChart.setExtraOffsets(0,0,0,15);
+        //Realiza un zoom de 1.4f
+        //barChart.zoomIn();
+        //Realiza un zoom out de 0.7f
+        //barChart.zoomOut();
 
-        barChart.moveViewToX(250f);
+        //Realiza una animación de izquierda a derecha de cada valor en el gráfico
+        //barChart.animateX(3000);
+        //Realiza una animación de abajo a arriba de cada valor en el gráfico
+        //barChart.animateY(3000);
+        //Realiza una animación en los dos Ejes
+        //barChart.animateXY(2000,2000);
+
+        //Aplicando tipos de animaciones
+        //barChart.animateX(3000, Easing.EasingOption.EaseInBounce);
+        barChart.animateY(3000, Easing.EasingOption.EaseOutBounce);
     }
 }

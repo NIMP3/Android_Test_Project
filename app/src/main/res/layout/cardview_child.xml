@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/cardview_child_height"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/cardview_child_margin_6"
     app:cardCornerRadius="@dimen/cardview_child_radius"
     app:cardElevation="@dimen/cardview_child_elevation">
 
@@ -19,6 +19,7 @@
             android:layout_marginStart="8dp"
             android:scaleType="centerCrop"
             android:src="@drawable/poster"
+            android:padding="@dimen/cardview_child_padding_8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline7"
             app:layout_constraintStart_toStartOf="parent"

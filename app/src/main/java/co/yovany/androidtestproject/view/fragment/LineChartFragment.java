@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.LimitLine;
@@ -222,6 +223,9 @@ public class LineChartFragment extends Fragment implements
         lineChart.setBorderColor(getResources().getColor(R.color.colorPrimaryText));
         lineChart.setBorderWidth(2f);
 
+        //Animaciones sobre el gráfico
+        lineChart.animateX(3000, Easing.EasingOption.Linear);
+        lineChart.animateY(3000, Easing.EasingOption.EaseOutSine);
     }
 
     /*----------------------------------------------------------------------------------------------
