@@ -190,6 +190,17 @@ public class LineChartFragment extends Fragment implements
         dataSetTest.setColors(colors, getContext());
         dataSetTest.setCircleColors(colors, getContext());
 
+        //Habilita/Deshabilita el dibujar un relleno debajo del gráfico
+        dataSetTest.setDrawFilled(true);
+        //Determina el color de relleno
+        dataSetTest.setFillColor(getResources().getColor(R.color.colorAccent));
+        //Determina la transparencia del color de relleno
+        dataSetTest.setFillAlpha(200);
+        //Habilita/Deshabilita dibujar en cada punto un circulo
+        dataSetTest.setDrawCircles(true);
+        //Dibuja una Linea punteada entre cada punto
+        dataSetTest.enableDashedLine(5f,2f,0f);
+
         //Seteamos por cada punto un color, a través de un array de colores del sistema
         dataSetExpo.setColors(ColorTemplate.MATERIAL_COLORS);
         dataSetExpo.setCircleColors(ColorTemplate.MATERIAL_COLORS);
@@ -209,11 +220,11 @@ public class LineChartFragment extends Fragment implements
 
         ChartUtility.buildAxesProperties(xAxis,yAxisLeft,yAxisRight);
 
-        xAxis.setGridColor(getResources().getColor(R.color.colorIcons));
-        yAxisLeft.setGridColor(getResources().getColor(R.color.colorIcons));
+        //xAxis.setGridColor(getResources().getColor(R.color.colorIcons));
+        //yAxisLeft.setGridColor(getResources().getColor(R.color.colorIcons));
 
         //Habilita/Deshabilita un fondo sobre la grilla del gráfico
-        lineChart.setDrawGridBackground(true);
+        lineChart.setDrawGridBackground(false);
         //Determina un color para la grilla del gráfico
         lineChart.setGridBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 

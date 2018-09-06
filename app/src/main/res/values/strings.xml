@@ -118,4 +118,6 @@
     <string name="dial_button_text">MARCAR UN NUMERO TELEFÓNICO</string>
     <string name="Street_button_text">ABRIR GOOGLE STREETVIEW</string>
     <string name="barchart_new_data">Nuevos Valores</string>
+    <string name="chart_other_item_title">OTROS</string>
+    <string name="skill_legend">HABILIDADES</string>
 </resources>

@@ -169,6 +169,8 @@ public class BarChartFragment extends Fragment {
 
         BarDataSet dataSetStacked = new BarDataSet(entriesStacked,getResources().getString(R.string.barchart_stacked_legend));
         dataSetStacked.setColors(ColorTemplate.MATERIAL_COLORS);
+        //Etiquetas para los datos del gráfico
+        dataSetStacked.setStackLabels(new String[] {"PRIMERO","SEGUNDO","TERCERO"});
 
         BarData barDataStacked = new BarData(dataSetStacked);
         barChartStacked.setData(barDataStacked);

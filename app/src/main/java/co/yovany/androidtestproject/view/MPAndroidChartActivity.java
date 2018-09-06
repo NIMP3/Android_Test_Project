@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.view.fragment.BarChartFragment;
 import co.yovany.androidtestproject.view.fragment.LineChartFragment;
+import co.yovany.androidtestproject.view.fragment.OtherChartFragment;
 import co.yovany.androidtestproject.view.fragment.PieChartFragment;
 
 public class MPAndroidChartActivity extends AppCompatActivity implements
@@ -58,6 +59,10 @@ public class MPAndroidChartActivity extends AppCompatActivity implements
             case R.id.itemChartPie:
                 launchFragment(new PieChartFragment(), resource);
                 break;
+            case R.id.itemChartOther:
+                launchFragment(new OtherChartFragment(), resource);
+                break;
+            default:
         }
         return true;
     }

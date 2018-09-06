@@ -22,4 +22,10 @@
         android:title="@string/chart_pie_item_title"
         android:icon="@drawable/ic_pie_chart"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/itemChartOther"
+        android:enabled="true"
+        android:icon="@drawable/ic_other_chart"
+        android:title="@string/chart_other_item_title"
+        app:showAsAction="ifRoom" />
 </menu>
