@@ -1,12 +1,11 @@
 package co.yovany.androidtestproject.view.fragment;
 
 
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.service.autofill.Dataset;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -32,7 +31,6 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.model.Notes;

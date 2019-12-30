@@ -4,32 +4,27 @@ package co.yovany.androidtestproject.view.fragment;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.service.autofill.Dataset;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.util.Log;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import co.yovany.androidtestproject.R;
-import co.yovany.androidtestproject.model.Notes;
 import co.yovany.androidtestproject.utilities.ChartUtility;
 
 /**

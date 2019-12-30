@@ -28,4 +28,14 @@
         android:icon="@drawable/ic_other_chart"
         android:title="@string/chart_other_item_title"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/itemuno"
+        android:icon="@drawable/ic_add"
+        android:title="Item"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/itemdos"
+        android:icon="@drawable/ic_basic_chart"
+        android:title="Item"
+        app:showAsAction="ifRoom" />
 </menu>

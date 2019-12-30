@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="principal_preferences">
+    <PreferenceCategory
+        android:title="Principales">
+
+        <CheckBoxPreference
+            android:key="music"
+            android:title="Reproducir Musica"
+            android:summary="Se reproduce música de fondo"/>
+
+        <ListPreference
+            android:key="graficos"
+            android:title="Tipo de Gráficos"
+            android:summary="Se escoge la representación de gráficos"
+            android:entries="@array/GraphicTypes"
+            android:entryValues="@array/GraphicTypesValues"
+            android:defaultValue="1"/>
+
+        <EditTextPreference
+            android:key="fragmentos"
+            android:title="Numero de Fragmentos"
+            android:summary="En cuantos trozos se divide un asteroide"
+            android:defaultValue="3"/>
+
+        <MultiSelectListPreference
+            android:key="eventos"
+            android:title="Eventos"
+            android:summary="Listado de Eventos"
+            android:entries="@array/AreasTypes"
+            android:entryValues="@array/AreasTypesValues" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Secundarias">
+        <CheckBoxPreference
+            android:key="music"
+            android:title="Reproducir Musica"
+            android:summary="Se reproduce música de fondo"/>
+
+        <ListPreference
+            android:key="graficos"
+            android:title="Tipo de Gráficos"
+            android:summary="Se escoge la representación de gráficos"
+            android:entries="@array/GraphicTypes"
+            android:entryValues="@array/GraphicTypesValues"
+            android:defaultValue="1"/>
+
+        <EditTextPreference
+            android:key="fragmentos"
+            android:title="Numero de Fragmentos"
+            android:summary="En cuantos trozos se divide un asteroide"
+            android:defaultValue="3"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
+
+

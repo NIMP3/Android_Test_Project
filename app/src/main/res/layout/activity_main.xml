@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
@@ -55,14 +55,14 @@ tools:context=".view.MainActivity">
         app:layout_constraintTop_toBottomOf="@+id/imageViewHeader"
         app:srcCompat="@drawable/ic_bookmark" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="16dp" />
 
-    <android.support.constraint.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@ tools:context=".view.MainActivity">
         app:layout_constraintTop_toBottomOf="@+id/textViewMovieHeading"
         tools:text="PG13 | Comedy | 113 min" />
 
-    <android.support.constraint.Barrier
+    <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,7 +132,7 @@ tools:context=".view.MainActivity">
         app:layout_constraintTop_toTopOf="@+id/barrier2"
         tools:text="BUY FROM R129.99" />
 
-    <android.support.constraint.Barrier
+    <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -157,7 +157,7 @@ tools:context=".view.MainActivity">
         app:layout_constraintTop_toBottomOf="@+id/view6"
         app:srcCompat="@drawable/polygon_raiting" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton2"
         android:layout_width="56dp"
         android:layout_height="56dp"
@@ -169,7 +169,7 @@ tools:context=".view.MainActivity">
         app:layout_constraintTop_toBottomOf="@+id/view6"
         app:srcCompat="@drawable/ic_group_white_24dp" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton3"
         android:layout_width="56dp"
         android:layout_height="56dp"
@@ -182,7 +182,7 @@ tools:context=".view.MainActivity">
         app:layout_constraintTop_toBottomOf="@+id/view6"
         app:srcCompat="@drawable/tomato" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton4"
         android:layout_width="56dp"
         android:layout_height="56dp"
@@ -255,7 +255,7 @@ tools:context=".view.MainActivity">
         app:layout_constraintTop_toTopOf="@+id/imageButton2"
         tools:text="4.5" />
 
-    <android.support.constraint.Barrier
+    <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -289,4 +289,4 @@ tools:context=".view.MainActivity">
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/view" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

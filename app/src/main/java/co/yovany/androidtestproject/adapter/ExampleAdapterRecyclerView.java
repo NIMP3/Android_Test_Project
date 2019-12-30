@@ -1,12 +1,11 @@
 package co.yovany.androidtestproject.adapter;
 
 import android.app.Activity;
-import android.app.VoiceInteractor;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +17,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import co.yovany.androidtestproject.R;
-import co.yovany.androidtestproject.SettingsActivity;
 import co.yovany.androidtestproject.model.Example;
-import co.yovany.androidtestproject.view.ComponentEditTextActivity;
-import co.yovany.androidtestproject.view.MainActivity;
-import co.yovany.androidtestproject.view.StudentListActivity;
-import co.yovany.androidtestproject.view.TinderSwipeActivity;
 
 public class ExampleAdapterRecyclerView extends RecyclerView.Adapter<ExampleAdapterRecyclerView.ExampleViewHolder> {
 

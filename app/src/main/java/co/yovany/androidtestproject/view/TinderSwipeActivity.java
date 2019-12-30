@@ -1,15 +1,12 @@
 package co.yovany.androidtestproject.view;
 
 import android.content.Context;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
-
-import java.util.List;
 
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.adapter.ProfileAdapterSwipeView;

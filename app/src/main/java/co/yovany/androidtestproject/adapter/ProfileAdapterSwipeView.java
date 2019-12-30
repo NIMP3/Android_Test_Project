@@ -2,9 +2,7 @@ package co.yovany.androidtestproject.adapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -24,7 +22,6 @@ import com.squareup.picasso.Picasso;
 
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.model.Profile;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 @Layout(R.layout.cardview_tinder)
 

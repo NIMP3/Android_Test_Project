@@ -3,7 +3,7 @@
     package="co.yovany.androidtestproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -12,9 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".firebase_example.login.view.LoginActivity"></activity>
+        <activity android:name=".room_example.view.ContactActivity" />
+        <activity android:name=".view.LottieActivity" />
+        <activity android:name=".view.SettingsProfileActivity" />
+        <activity android:name=".view.SharedPreferencesActivity" />
         <activity android:name=".ExamplesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -31,7 +37,31 @@
         <activity android:name=".view.StudentListActivity" />
         <activity android:name=".view.MPAndroidChartActivity" />
         <activity android:name=".view.NestedScrollViewActivity" />
-        <activity android:name=".view.ComponentIntentActivity"></activity>
+        <activity android:name=".view.ComponentIntentActivity" /> <!-- Inhabilitar la autogeneración de Instance ID para Firebase Messaging -->
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" /> <!-- Inhabilitar la autogeneración de Instance ID para Firebase Analytics -->
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" /> <!-- Determina el icono por default. Es usado cuando no se determina un icono en el mensaje. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" /> <!-- Determina el color por default. Es usado cuando no se determina un color en el mensaje. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" /> <!-- Define el Servicio encargado de gestionar las notificaciones del Servidor -->
+        <service
+            android:name=".services.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".services.MyFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

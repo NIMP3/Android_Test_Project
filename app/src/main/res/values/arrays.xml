@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="GraphicTypes">
+        <item>Vectorial</item>
+        <item>Bitmap</item>
+        <item>3D</item>
+    </string-array>
+
+    <string-array name="GraphicTypesValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    
+    <string-array name="AreasTypes">
+        <item>Deportes</item>
+        <item>Salud</item>
+        <item>Cultura</item>
+        <item>Desarrollo Humano</item>
+        <item>Socioeconómico</item>
+        <item>Salud en el Trabajo</item>
+    </string-array>
+
+    <string-array name="AreasTypesValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+</resources>

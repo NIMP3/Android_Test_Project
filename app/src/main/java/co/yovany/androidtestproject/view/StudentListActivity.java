@@ -1,15 +1,12 @@
 package co.yovany.androidtestproject.view;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
-import java.util.ArrayList;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import co.yovany.androidtestproject.R;
 import co.yovany.androidtestproject.adapter.StudentAdapterRecyclerView;
-import co.yovany.androidtestproject.model.Student;
 import co.yovany.androidtestproject.model.Students;
 
 public class StudentListActivity extends AppCompatActivity {
